@@ -15,14 +15,6 @@ class BezoekerController extends AbstractController
      */
     public function homepage()
     {
-        return new Response('OMG! My first page already! WOOO!');
-    }
-
-    /**
-     * @Route("/news/{slug}")
-     */
-    public function show($slug)
-    {
-        return $this->render('article/index.html.twig',['title' => ucwords(str_replace('-',' ', $slug))]);
+        return $this->render('views/bezoeker/index.html.twig');
     }
 }
