@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3102e986-8083-49e7-8d80-eeba549e77b7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/css/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/BezoekerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BezoekerController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/views/bezoeker/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views/bezoeker/index.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -111,7 +113,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../keuzedeel-frontend-portfolio-examen-opdrachten-RowanAmatkario" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -121,6 +123,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Rowan\Desktop\training_factory\css" />
+      <recent name="C:\Users\Rowan\Desktop\training_factory\templates\views\bezoeker" />
       <recent name="C:\Users\Rowan\Desktop\training_factory\public\image" />
       <recent name="C:\Users\Rowan\Desktop\training_factory\public" />
     </key>
@@ -152,7 +156,8 @@
       <option name="presentableId" value="Default" />
       <updated>1574671731023</updated>
       <workItem from="1574671732266" duration="5909000" />
-      <workItem from="1574702803648" duration="1028000" />
+      <workItem from="1574702803648" duration="2098000" />
+      <workItem from="1574705745611" duration="5023000" />
     </task>
     <servers />
   </component>
