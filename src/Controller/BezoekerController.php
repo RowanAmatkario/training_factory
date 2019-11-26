@@ -23,15 +23,11 @@ class BezoekerController extends AbstractController
             Onze therapeuten staan geregistreerd in het Centraal Kwaliteits Register voor fysiotherapie en manuele therapie.',
 
         ];
-<<<<<<< HEAD
         $posts = $this->getDoctrine()->getRepository('App:Training')->findAll();
 
 
         return $this->render( 'views/bezoeker/index.html.twig', [
             'posts' => $posts,
-=======
-        return $this->render('views/bezoeker/index.html.twig', [
->>>>>>> ea8e5ec72b5d9d14b74c53a7b2723d7b2aea54e1
             'comments' => $comments,
         ]);
 
