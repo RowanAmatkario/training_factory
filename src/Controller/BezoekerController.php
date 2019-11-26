@@ -3,9 +3,11 @@
 namespace App\Controller;
 
 
+use App\Entity\Training;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+USE Doctrine\Common\Annotations\Annotation;
 
 
 class BezoekerController extends AbstractController
@@ -23,10 +25,9 @@ class BezoekerController extends AbstractController
             Onze therapeuten staan geregistreerd in het Centraal Kwaliteits Register voor fysiotherapie en manuele therapie.',
 
         ];
-        $posts = $this->getDoctrine()->getRepository('App:Training')->findAll();
+        $posts = $this->getDoctrine()->getRepository(Training::class)->findAll();
 
-
-        return $this->render( 'base.html.twig', [
+        return $this->render( 'bezoeker/index.html.twig', [
             'posts' => $posts,
             'comments' => $comments,
         ]);
