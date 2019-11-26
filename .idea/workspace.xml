@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3102e986-8083-49e7-8d80-eeba549e77b7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/bezoeker.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/medewerker.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/BezoekerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BezoekerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/DeelnemerController.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/views/bezoeker/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views/bezoeker/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/bezoeker/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bezoeker/index.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -125,15 +122,16 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Rowan\Desktop\training_factory\src" />
+      <recent name="C:\Users\Rowan\Desktop\training_factory\templates" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Rowan\Desktop\training_factory\templates" />
       <recent name="C:\Users\Rowan\Desktop\training_factory\css" />
       <recent name="C:\Users\Rowan\Desktop\training_factory\templates\views\bezoeker" />
       <recent name="C:\Users\Rowan\Desktop\training_factory\public\image" />
       <recent name="C:\Users\Rowan\Desktop\training_factory\public" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Rowan\Desktop\training_factory\src" />
-      <recent name="C:\Users\Rowan\Desktop\training_factory\templates" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -161,7 +159,7 @@
       <workItem from="1574671732266" duration="5909000" />
       <workItem from="1574702803648" duration="2098000" />
       <workItem from="1574705745611" duration="5023000" />
-      <workItem from="1574762882004" duration="3397000" />
+      <workItem from="1574762882004" duration="5196000" />
     </task>
     <servers />
   </component>
