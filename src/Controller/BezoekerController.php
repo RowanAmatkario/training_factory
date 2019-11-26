@@ -26,7 +26,7 @@ class BezoekerController extends AbstractController
         $posts = $this->getDoctrine()->getRepository('App:Training')->findAll();
 
 
-        return $this->render( 'views/bezoeker/index.html.twig', [
+        return $this->render( 'base.html.twig', [
             'posts' => $posts,
             'comments' => $comments,
         ]);
