@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3102e986-8083-49e7-8d80-eeba549e77b7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/BezoekerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BezoekerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/bezoeker/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bezoeker/index.html.twig" afterDir="false" />
-    </list>
+    <list default="true" id="3102e986-8083-49e7-8d80-eeba549e77b7" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +154,7 @@
       <workItem from="1574671732266" duration="5909000" />
       <workItem from="1574702803648" duration="2098000" />
       <workItem from="1574705745611" duration="5023000" />
-      <workItem from="1574762882004" duration="5196000" />
+      <workItem from="1574762882004" duration="5236000" />
     </task>
     <servers />
   </component>
