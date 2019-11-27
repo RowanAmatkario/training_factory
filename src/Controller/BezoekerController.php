@@ -5,6 +5,7 @@ namespace App\Controller;
 
 use App\Entity\Training;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 USE Doctrine\Common\Annotations\Annotation;
@@ -13,9 +14,9 @@ USE Doctrine\Common\Annotations\Annotation;
 class BezoekerController extends AbstractController
 {
     /**
-     * @Route("/")
+     * @Route("/", name="homepage")
      */
-    public function homepage()
+    public function homepageAction()
     {
         $comments = [
             'Trainingscentrum Den Haag heeft ook een praktijk in Ypenburg. Het MTC Ypenburg.Na 10 jaar gezeten te hebben in het gezondheidscentrum Ypenburg zijn we op 3 juli 2017 overgestapt naar de Laan van Hoornwijck 174. Een uitbreiding van ons centrum met oefenzaal en fitness apparatuur.
@@ -32,6 +33,22 @@ class BezoekerController extends AbstractController
             'comments' => $comments,
         ]);
 
+    }
+
+    /**
+     * @Route("/{id}", name="kartactiviteiten")
+     */
+    public function kartactiviteitenAction($id, EntityManagerInterface $em)
+    {
+        $em = $this->getDoctrine()->getRepository(Training::class);
+        $training = $em->findOneBy([
+            'id' => $id,
+        ]);
+        $posts = $this->getDoctrine()->getRepository(Training::class)->findAll();
+        return $this->render('bezoeker/kartactiviteiten.html.twig', [
+            'posts' => $posts,
+            'post' => $training,
+        ]);
     }
 
 

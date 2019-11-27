@@ -11,10 +11,10 @@
                 <div class="card-footer text-muted">
                     {{post.costs}}
                 </div>
+                <button type="button" class="btn btn-light"><a href="{{ post.id }}">Plannen</a></button>
             </div>
         {% endfor %}
     </div>
-
     <div class="container">
         <h1>Welkom bij Training Centrum Den Haag</h1> <br>
         {% for comment in comments %}
@@ -22,3 +22,4 @@
         {% endfor %}
     </div>
 {% endblock %}
+
