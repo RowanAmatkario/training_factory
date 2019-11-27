@@ -4,7 +4,6 @@
     <list default="true" id="3102e986-8083-49e7-8d80-eeba549e77b7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/BezoekerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BezoekerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/bezoeker/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bezoeker/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/bezoeker/kartactiviteiten.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bezoeker/kartactiviteiten.html.twig" afterDir="false" />
     </list>
@@ -114,7 +113,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../keuzedeel-frontend-portfolio-examen-opdrachten-RowanAmatkario" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -162,6 +161,8 @@
       <workItem from="1574705745611" duration="5023000" />
       <workItem from="1574762882004" duration="5236000" />
       <workItem from="1574859606626" duration="3456000" />
+      <workItem from="1574884103757" duration="26000" />
+      <workItem from="1574884131797" duration="4362000" />
     </task>
     <servers />
   </component>
