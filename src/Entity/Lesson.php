@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -17,12 +19,12 @@ class Lesson
     private $id;
 
     /**
-     * @ORM\Column(type="time", nullable=true)
+     * @ORM\Column(type="time")
      */
     private $time;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="date")
      */
     private $date;
 
@@ -31,10 +33,14 @@ class Lesson
      */
     private $location;
 
+
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Training", inversedBy="lessons")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $max_person;
+    private $training;
+
+
 
     public function getId(): ?int
     {
@@ -46,7 +52,7 @@ class Lesson
         return $this->time;
     }
 
-    public function setTime(?\DateTimeInterface $time): self
+    public function setTime(\DateTimeInterface $time): self
     {
         $this->time = $time;
 
@@ -58,7 +64,7 @@ class Lesson
         return $this->date;
     }
 
-    public function setDate(?\DateTimeInterface $date): self
+    public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
 
@@ -77,14 +83,16 @@ class Lesson
         return $this;
     }
 
-    public function getMaxPerson(): ?string
+
+
+    public function getTraining(): ?Training
     {
-        return $this->max_person;
+        return $this->training;
     }
 
-    public function setMaxPerson(string $max_person): self
+    public function setTraining(?Training $training): self
     {
-        $this->max_person = $max_person;
+        $this->training = $training;
 
         return $this;
     }

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {{ parent() }}
+    <div class="container-fluid">
+        {% for post in posts %}
+            <div class="card col-4 float-left" style="width: 50%; margin-top: 2%;">
+                <img src="image/{{post.naam}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h4 class="card-title">{{post.naam}}</h4>
+                    <table class="table table-borderless">
+                        <tbody>
+                        <tr>
+                            <td>Looptijd :</td>
+                            <td>{{ post.duration}}</td>
+                        </tr>
+                        <tr>
+                            <td>Tarief :</td>
+                            <td>&euro; {{post.costs}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+            </div>
+        {% endfor %}
+            <h3>Inschrijven op les</h3>
+
+
+    </div>
+{% endblock %}
+

@@ -13,14 +13,13 @@ class PostType extends AbstractType
     {
         $builder
             ->add('payment')
-            ->add('naam')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Post::class,
+            'data_class' => Registration::class,
         ]);
     }
 }

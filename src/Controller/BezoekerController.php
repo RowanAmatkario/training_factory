@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 
+use App\Entity\Lesson;
 use App\Entity\Training;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
@@ -36,21 +37,26 @@ class BezoekerController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="kartactiviteiten")
+     * @Route("/training", name="agenda")
      */
-    public function kartactiviteitenAction($id, EntityManagerInterface $em)
+    public function agendaAction()
     {
-        $em = $this->getDoctrine()->getRepository(Training::class);
-        $training = $em->findOneBy([
-            'id' => $id,
-        ]);
         $posts = $this->getDoctrine()->getRepository(Training::class)->findAll();
-        return $this->render('bezoeker/kartactiviteiten.html.twig', [
+        return $this->render('bezoeker/agenda.html.twig', [
             'posts' => $posts,
-            'post' => $training,
         ]);
     }
 
+    /**
+     * @Route("/activiteiten", name="kartactiviteiten")
+     */
+    public function kartactiviteitenAction()
+    {
+        $posts = $this->getDoctrine()->getRepository(Training::class)->findAll();
+        return $this->render('bezoeker/kartactiviteiten.html.twig', [
+            'posts' => $posts,
+        ]);
+    }
 
 
 

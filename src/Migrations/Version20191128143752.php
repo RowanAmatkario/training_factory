@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20191126075246 extends AbstractMigration
+final class Version20191128143752 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,8 +22,9 @@ final class Version20191126075246 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('CREATE TABLE les (id INT AUTO_INCREMENT NOT NULL, naam VARCHAR(255) NOT NULL, beschrijving VARCHAR(255) NOT NULL, looptijd VARCHAR(255) NOT NULL, tarief VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE lesson (id INT AUTO_INCREMENT NOT NULL, time TIME DEFAULT NULL, date DATETIME DEFAULT NULL, location VARCHAR(255) NOT NULL, max_person VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('ALTER TABLE lesson ADD training_id INT NOT NULL');
+        $this->addSql('ALTER TABLE lesson ADD CONSTRAINT FK_F87474F3BEFD98D1 FOREIGN KEY (training_id) REFERENCES training (id)');
+        $this->addSql('CREATE INDEX IDX_F87474F3BEFD98D1 ON lesson (training_id)');
     }
 
     public function down(Schema $schema) : void
@@ -31,7 +32,8 @@ final class Version20191126075246 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('DROP TABLE les');
-        $this->addSql('DROP TABLE lesson');
+        $this->addSql('ALTER TABLE lesson DROP FOREIGN KEY FK_F87474F3BEFD98D1');
+        $this->addSql('DROP INDEX IDX_F87474F3BEFD98D1 ON lesson');
+        $this->addSql('ALTER TABLE lesson DROP training_id');
     }
 }
