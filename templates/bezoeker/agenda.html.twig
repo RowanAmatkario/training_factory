@@ -4,30 +4,105 @@
     <div class="container-fluid">
         {% for post in posts %}
             <div class="card col-4 float-left" style="width: 50%; margin-top: 2%;">
-                <img src="image/{{post.naam}}" class="card-img-top" alt="...">
+                <img src="image/{{ post.naam }}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h4 class="card-title">{{post.naam}}</h4>
+                    <h4 class="card-title">{{ post.naam }}</h4>
                     <table class="table table-borderless">
                         <tbody>
                         <tr>
                             <td>Looptijd :</td>
-                            <td>{{ post.duration}}</td>
+                            <td>{{ post.duration }}</td>
                         </tr>
                         <tr>
                             <td>Tarief :</td>
-                            <td>&euro; {{post.costs}}</td>
+                            <td>&euro; {{ post.costs }}</td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
 
 
-
             </div>
         {% endfor %}
-            <h3>Inschrijven op les</h3>
+        <div class="container">
+        <div class="card" style="width: 100%;">
+            <div class="card-body">
+                <p class="card-text">
+                <h3>Inschrijven op les</h3>
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link active" style="background-color: #e7e7e7; color: black;" data-toggle="pill"
+                           href="#maandag">Maandag</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="background-color: #e7e7e7; color: black;" data-toggle="pill"
+                           href="#dinsdag">Dinsdag</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="background-color: #e7e7e7; color: black;" data-toggle="pill"
+                           href="#woensdag">Woensdag</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="background-color: #e7e7e7; color: black;" data-toggle="pill"
+                           href="#donderdag">Donderdag</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="background-color: #e7e7e7; color: black;" data-toggle="pill"
+                           href="#vrijdag">Vrijdag</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="background-color: #e7e7e7; color: black;" data-toggle="pill"
+                           href="#zaterdag">Zaterdag</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="background-color: #e7e7e7; color: black;" data-toggle="pill"
+                           href="#zondag">Zondag</a>
+                    </li>
+                </ul>
 
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    {% for post in posts %}
+
+                        {% for les in post.getLessons %}
+                            <div class="tab-pane container active" id="maandag">
+                                <div class="card col-4" style="width: 15rem; margin-top: 3%; height: 150px;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{post.naam}}</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">{{ les.getLocation }}</h6>
+                                        <div class="card-footer text-muted">
+                                            <button type="button" class="btn btn-light" style="width: 80%;">Inplannen</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane container fade" id="dinsdag"></div>
+                            <div class="tab-pane container fade" id="woensdag"></div>
+                            <div class="tab-pane container fade" id="donderdag"></div>
+                            <div class="tab-pane container fade" id="vrijdag"></div>
+                            <div class="tab-pane container fade" id="zaterdag"></div>
+                            <div class="tab-pane container fade" id="zondag"></div>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+                </p>
+            </div>
+        </div>
+        </div>
 
     </div>
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
