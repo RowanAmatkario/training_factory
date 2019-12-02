@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3102e986-8083-49e7-8d80-eeba549e77b7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/DirecteurController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/TrainingType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/medewerker/add.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/FormController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/PostType.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/bezoeker/agenda.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bezoeker/agenda.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/bezoeker/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bezoeker/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/TrainingType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/TrainingType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/medewerker/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/medewerker/add.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -171,7 +165,7 @@
       <workItem from="1574884131797" duration="4452000" />
       <workItem from="1574928843757" duration="16976000" />
       <workItem from="1574949794580" duration="2313000" />
-      <workItem from="1575272867666" duration="3515000" />
+      <workItem from="1575272867666" duration="3968000" />
     </task>
     <servers />
   </component>
