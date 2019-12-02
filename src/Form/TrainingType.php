@@ -1,25 +1,29 @@
 <?php
 
+
 namespace App\Form;
 
-use App\Entity\Registration;
+
+use App\Entity\Training;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PostType extends AbstractType
+class TrainingType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('payment')
-        ;
+            ->add('naam', TextType::class)
+            ->add('description', TextType::class)
+            ->add('duration', TextType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Registration::class,
+            'data_class' => Training::class,
         ]);
     }
 }
