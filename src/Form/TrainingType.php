@@ -19,6 +19,7 @@ class TrainingType extends AbstractType
             ->add('naam', TextType::class)
             ->add('description', TextType::class)
             ->add('duration', TextType::class)
+            ->add('costs', TextType::class)
             ->add('Toevoegen', SubmitType::class);
     }
 
