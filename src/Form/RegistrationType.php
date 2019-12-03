@@ -27,7 +27,13 @@ class RegistrationType extends AbstractType
             ->add('preprovision', TextType::class)
             ->add('lastname', TextType::class)
             ->add('dateofbirth', BirthdayType::class)
-            ->add('gender', ChoiceType::class)
+            ->add('gender', ChoiceType::class, array(
+                'choices' => array(
+                    'Man' => 'Man',
+                    'Vrouw' => 'Vrouw',
+                    'Geen' => 'Geen',
+                )
+            ))
             ->add('emailaddress', TextType::class)
             ->add('Registeren', SubmitType::class);
     }

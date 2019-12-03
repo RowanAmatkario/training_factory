@@ -17,32 +17,32 @@ class Person
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=15)
+     * @ORM\Column(type="string", length=255)
      */
     private $loginname;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=255)
      */
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=255)
      */
     private $firstname;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $preprovision;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=255)
      */
     private $lastname;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="date")
      */
     private $dateofbirth;
 
@@ -102,7 +102,7 @@ class Person
         return $this->preprovision;
     }
 
-    public function setPreprovision(string $preprovision): self
+    public function setPreprovision(?string $preprovision): self
     {
         $this->preprovision = $preprovision;
 
@@ -121,12 +121,12 @@ class Person
         return $this;
     }
 
-    public function getDateofbirth(): ?string
+    public function getDateofbirth(): ?\DateTimeInterface
     {
         return $this->dateofbirth;
     }
 
-    public function setDateofbirth(string $dateofbirth): self
+        public function setDateofbirth(\DateTimeInterface $dateofbirth): self
     {
         $this->dateofbirth = $dateofbirth;
 
