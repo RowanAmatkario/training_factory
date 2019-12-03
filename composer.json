@@ -18,7 +18,8 @@
         "symfony/web-server-bundle": "4.3.*",
         "symfony/yaml": "4.3.*",
         "twig/extra-bundle": "^2.12|^3.0",
-        "twig/twig": "^2.12|^3.0"
+        "twig/twig": "^2.12|^3.0",
+        "rackspace/php-opencloud": "dev-master"
     },
     "require-dev": {
         "easycorp/easy-log-handler": "^1.0.7",
