@@ -13,8 +13,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DirecteurController extends AbstractController
 {
-
-
     /**
      * @Route("/add", name="add")
      */
@@ -23,8 +21,32 @@ class DirecteurController extends AbstractController
         $training = new Training();
         $form = $this->createForm(TrainingType::class, $training);
 
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $task = $form->getData();
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($task);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('task_success');
+        }
+
+
         return $this->render('medewerker/add.html.twig', [
             'form' => $form->createView(),
         ]);
     }
+
+
+    /**
+     * @Route("/activiteiten", name="task_success")
+     */
+
+    public function succesAction(){
+        return $this->render('bezoeker/kartactiviteiten.html.twig');
+    }
+
+
 }

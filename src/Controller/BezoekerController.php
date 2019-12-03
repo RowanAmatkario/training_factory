@@ -4,7 +4,11 @@ namespace App\Controller;
 
 
 use App\Entity\Lesson;
+use App\Entity\Person;
 use App\Entity\Training;
+use App\Form\RegistrationType;
+use App\Form\TrainingType;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -57,6 +61,53 @@ class BezoekerController extends AbstractController
             'posts' => $posts,
         ]);
     }
+
+    /**
+     * @Route("/login", name="login")
+     */
+    public function loginAction()
+    {
+        return $this->render('bezoeker/login.html.twig');
+    }
+
+
+//Form database
+    /**
+     * @Route("/registration", name="registration")
+     */
+    public function new(Request $request)
+    {
+        $person = new Person();
+        $form = $this->createForm(RegistrationType::class, $person);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $task = $form->getData();
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($task);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('task_success');
+        }
+
+
+        return $this->render('bezoeker/registeren.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
+
+    /**
+     * @Route("/activiteiten", name="task_success")
+     */
+
+    public function succesAction(){
+        return $this->render('bezoeker/kartactiviteiten.html.twig');
+    }
+
+
 
 
 

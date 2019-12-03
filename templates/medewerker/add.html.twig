@@ -3,21 +3,19 @@
     {{ parent() }}
 
     <div class="container" style="margin-top: 2%;">
-        <h2>Training toevoegen</h2>
+
+        <h2 style="text-align: center;">Training toevoegen</h2>
         <table class="table table-borderless">
             <tbody>
-            <tr><td>Training : {{ form(form.naam) }}</td></tr>
-            <tr><td>Beschrijving : {{ form(form.description) }}</td></tr>
-            <tr><td>Looptijd : {{ form(form.duration) }}</td></tr>
-            <tr><td>Tarief : {{ form(form.costs) }}</td></tr>
             <tr><td>{{ form(form) }}</td></tr>
             </tbody>
         </table>
-
     </div>
 
 
 {% endblock %}
+
+
 
 
 
