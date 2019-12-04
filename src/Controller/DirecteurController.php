@@ -14,8 +14,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class DirecteurController extends AbstractController
 {
     /**
-     * @Route("/add", name="add")
-     */
+ * @Route("/add", name="add")
+ */
     public function new(Request $request)
     {
         $training = new Training();
@@ -49,6 +49,23 @@ class DirecteurController extends AbstractController
     {
         return $this->render('bezoeker/kartactiviteiten.html.twig');
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /**
      * @Route("/edit", name="sportEdit")
