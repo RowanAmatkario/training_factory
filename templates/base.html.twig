@@ -10,7 +10,7 @@
 <body>
 {% block body %}
 
-    <img src="image/header.webp" alt="logo" style="width:150px; float: left;">
+    <img src="{{ asset('image/header.webp') }}" alt="logo" style="width:150px; float: left;">
     <h1>Training Centrum <br>Den Haag</h1>
 
     <div class="button">
@@ -22,7 +22,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-top: 3%;" >
         <a class="navbar-brand" href="#">
-            <img src="image/logo.jpg" alt="logo" style="width:50px;">
+            <img src="{{ asset('image/logo.jpg') }}" alt="logo" style="width:50px;">
         </a>
 
         <ul class="navbar-nav">
@@ -48,7 +48,7 @@
 {% block footer %}
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-top: 1%;">
         <a class="navbar-brand" href="#">
-            <img src="image/logo.jpg" alt="logo" style="width:50px;">
+            <img src="{{ asset('image/logo.jpg') }}" alt="logo" style="width:50px;">
         </a>
 
         <h5>© 2019 Copyright: TrainingFactory.nl</h5>

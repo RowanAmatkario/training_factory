@@ -41,13 +41,13 @@ class BezoekerController extends AbstractController
     }
 
     /**
-     * @Route("/training", name="agenda")
+     * @Route("/training/{id}", name="agenda")
      */
-    public function agendaAction()
+    public function agendaAction($id)
     {
-        $posts = $this->getDoctrine()->getRepository(Training::class)->findAll();
+        $training = $this->getDoctrine()->getRepository(Training::class)->find($id);
         return $this->render('bezoeker/agenda.html.twig', [
-            'posts' => $posts,
+            'training' => $training,
         ]);
     }
 

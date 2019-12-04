@@ -1,21 +1,19 @@
 {% extends 'base.html.twig' %}
 {% block body %}
     {{ parent() }}
-    <div class="container-fluid">
-        {% for post in posts %}
+    <div class="container">
             <div class="card col-4 float-left" style="width: 50%; margin-top: 2%;">
-                <img src="image/{{ post.naam }}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h4 class="card-title">{{ post.naam }}</h4>
+                    <h4 class="card-title">{{ training.naam }}</h4>
                     <table class="table table-borderless">
                         <tbody>
                         <tr>
                             <td>Looptijd :</td>
-                            <td>{{ post.duration }}</td>
+                            <td>{{ training.duration }}</td>
                         </tr>
                         <tr>
                             <td>Tarief :</td>
-                            <td>&euro; {{ post.costs }}</td>
+                            <td>&euro; {{ training.costs }}</td>
                         </tr>
                         </tbody>
                     </table>
@@ -23,7 +21,6 @@
 
 
             </div>
-        {% endfor %}
         <div class="container">
         <div class="card" style="width: 100%;">
             <div class="card-body">
@@ -62,13 +59,13 @@
 
                 <!-- Tab panes -->
                 <div class="tab-content">
-                    {% for post in posts %}
+                    {% for trainingen in training %}
 
-                        {% for les in post.getLessons %}
+                        {% for les in training.getLessons %}
                             <div class="tab-pane container active" id="maandag">
                                 <div class="card col-4" style="width: 15rem; margin-top: 3%; height: 150px;">
                                     <div class="card-body">
-                                        <h5 class="card-title">{{post.naam}}</h5>
+                                        <h5 class="card-title">{{training.naam}}</h5>
                                         <h6 class="card-subtitle mb-2 text-muted">{{ les.getLocation }}</h6>
                                         <div class="card-footer text-muted">
                                             <button type="button" class="btn btn-light" style="width: 80%;">Inplannen</button>

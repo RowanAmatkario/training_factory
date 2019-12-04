@@ -40,12 +40,25 @@ class DirecteurController extends AbstractController
     }
 
 
+
     /**
      * @Route("/activiteiten", name="task_success")
      */
 
-    public function succesAction(){
+    public function succesAction()
+    {
         return $this->render('bezoeker/kartactiviteiten.html.twig');
+    }
+
+    /**
+     * @Route("/edit", name="sportEdit")
+     */
+    public function sportEditAction()
+    {
+        $posts = $this->getDoctrine()->getRepository(Training::class)->findAll();
+        return $this->render('medewerker/editSport.html.twig', [
+            'posts' => $posts,
+        ]);
     }
 
 
