@@ -9,6 +9,7 @@ use App\Form\TrainingType;
 use Doctrine\DBAL\Types\TextType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class DirecteurController extends AbstractController
@@ -64,13 +65,13 @@ class DirecteurController extends AbstractController
     /**
      * @Route("/modify/{id}", name="modify")
      */
-    public function updateAction($id)
-    {
+    public function modifyAction($id)
+        {
         $posts = $this->getDoctrine()->getRepository(Training::class)->find($id);
         return $this->render('medewerker/modifySport.html.twig', [
-            'posts' => $posts,
+           'posts' => $posts,
         ]);
-    }
+        }
 
 
 }
