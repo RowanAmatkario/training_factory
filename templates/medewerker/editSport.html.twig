@@ -1,45 +1,53 @@
 {% extends 'base.html.twig' %}
+
 {% block body %}
     {{ parent() }}
 
     <div class="container" style="margin-top: 2%;">
 
-        <h2 style="text-align: center;">Trainingen bewerken</h2>
-        <table class="table table-borderless">
-            <thead>
+    <h3 style="text-align: center;">Training wijzigen</h3>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Training</th>
+            <th>Beschrijving</th>
+            <th>Wijzigen</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for training in trainings %}
             <tr>
-                <th>Training</th>
-                <th>Looptijd</th>
-                <th>Tarief</th>
-                <th>Kies</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for post in posts %}
-            <tr>
+                <td>{{ training.naam }}</td>
+                <td>{{ training.description }}</td>
                 <td>
-                    {{ post.naam }}
+                    <button type="button" class="btn btn-outline-primary"><a href="{{ path('training_show', {'id': training.id}) }}">Bekijken</a></button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-outline-primary"><a href="{{ path('training_edit', {'id': training.id}) }}">Wijzigen</a></button>
+                </td>
+                <td>
+                    {{ include('medewerker/delete.html.twig') }}
+
                 </td>
 
-                <td>
-                    {{ post.duration }}
-                </td>
-                <td>
-                    {{ post.costs }}
-                </td>
-                <td>
-                    <button type="button" class="btn btn-outline-primary"><a href="modify/{{ post.id }}">Wijzigen</a></button>
-                    <button type="button" class="btn btn-outline-primary"><a href="modify/{{ post.id }}">Verwijderen</a></button>
-                </td>
             </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-        <button type="button" class="btn btn-outline-primary"><a href="{{ path('add') }}">Training Toevoegen</a></button>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+        <button type="button" class="btn btn-outline-primary"><a href="{{ path('training_new') }}">Training Toevoegen</a></button>
+
     </div>
-
-
 {% endblock %}
+
+
+
 
 
 

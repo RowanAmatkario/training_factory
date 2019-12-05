@@ -6,18 +6,33 @@ namespace App\Controller;
 
 use App\Entity\Training;
 use App\Form\TrainingType;
+use App\Repository\TrainingRepository;
 use Doctrine\DBAL\Types\TextType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * @Route("/admin")
+ */
+
 class DirecteurController extends AbstractController
 {
     /**
- * @Route("/add", name="add")
+     * @Route("/", name="training_index", methods={"GET"})
+     */
+    public function index(TrainingRepository $trainingRepository): Response
+    {
+        return $this->render('medewerker/editSport.html.twig', [
+            'trainings' => $trainingRepository->findAll(),
+        ]);
+    }
+
+    /**
+ * @Route("/add", name="training_new", methods={"GET","POST"})
  */
-    public function new(Request $request)
+    public function new(Request $request):Response
     {
         $training = new Training();
         $form = $this->createForm(TrainingType::class, $training);
@@ -25,17 +40,17 @@ class DirecteurController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $task = $form->getData();
 
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($task);
+            $entityManager->persist($training);
             $entityManager->flush();
 
-            return $this->redirectToRoute('task_success');
+            return $this->redirectToRoute('training_index');
         }
 
 
         return $this->render('medewerker/add.html.twig', [
+            'training' => $training,
             'form' => $form->createView(),
         ]);
     }
@@ -43,23 +58,47 @@ class DirecteurController extends AbstractController
 
 
     /**
-     * @Route("/activiteiten", name="task_success")
+     * @Route("/{id}", name="training_show", methods={"GET"})
      */
-
-    public function succesAction()
+    public function show(Training $training): Response
     {
-        return $this->render('bezoeker/kartactiviteiten.html.twig');
+        return $this->render('medewerker/show.html.twig', [
+            'training' => $training,
+        ]);
     }
 
     /**
-     * @Route("/edit", name="sportEdit")
+     * @Route("/{id}/edit", name="training_edit", methods={"GET","POST"})
      */
-    public function sportEditAction()
+    public function edit(Request $request, Training $training): Response
     {
-        $posts = $this->getDoctrine()->getRepository(Training::class)->findAll();
+        $form = $this->createForm(TrainingType::class, $training);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('training_index');
+        }
+
         return $this->render('medewerker/editSport.html.twig', [
-            'posts' => $posts,
+            'training' => $training,
+            'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/{id}", name="training_delete", methods={"DELETE"})
+     */
+    public function delete(Request $request, Training $training): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$training->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($training);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('training_index');
     }
 
     /**

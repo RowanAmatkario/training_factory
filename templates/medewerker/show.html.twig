@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+
+    <div class="container" style="margin-top: 2%;">
+    <h3 style="text-align: center;">Training</h3>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Naam</th>
+            <td>{{ training.naam }}</td>
+        </tr>
+        <tr>
+            <th>Beschrijving</th>
+            <td>{{ training.description }}</td>
+        </tr>
+        <tr>
+            <th>Looptijd</th>
+            <td>{{ training.duration }}</td>
+        </tr>
+        <tr>
+            <th>Tarief</th>
+            <td>{{ training.costs }}</td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+
+
+{% endblock %}

@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3102e986-8083-49e7-8d80-eeba549e77b7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/medewerker/delete.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/medewerker/form.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/medewerker/show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/DirecteurController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DirecteurController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/medewerker/editSport.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/medewerker/editSport.html.twig" afterDir="false" />
@@ -120,7 +123,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../training_factory_rowan" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -181,6 +184,8 @@
       <workItem from="1575454596131" duration="51000" />
       <workItem from="1575454650732" duration="12215000" />
       <workItem from="1575531966872" duration="9674000" />
+      <workItem from="1575579164702" duration="16000" />
+      <workItem from="1575579182350" duration="3163000" />
     </task>
     <servers />
   </component>
