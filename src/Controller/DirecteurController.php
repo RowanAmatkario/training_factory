@@ -81,7 +81,7 @@ class DirecteurController extends AbstractController
             return $this->redirectToRoute('training_index');
         }
 
-        return $this->render('medewerker/editSport.html.twig', [
+        return $this->render('medewerker/modifySport.html.twig', [
             'training' => $training,
             'form' => $form->createView(),
         ]);
@@ -101,16 +101,6 @@ class DirecteurController extends AbstractController
         return $this->redirectToRoute('training_index');
     }
 
-    /**
-     * @Route("/modify/{id}", name="modify")
-     */
-    public function modifyAction($id)
-        {
-        $posts = $this->getDoctrine()->getRepository(Training::class)->find($id);
-        return $this->render('medewerker/modifySport.html.twig', [
-           'posts' => $posts,
-        ]);
-        }
 
 
 }
