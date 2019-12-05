@@ -50,23 +50,6 @@ class DirecteurController extends AbstractController
         return $this->render('bezoeker/kartactiviteiten.html.twig');
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /**
      * @Route("/edit", name="sportEdit")
      */
@@ -74,6 +57,17 @@ class DirecteurController extends AbstractController
     {
         $posts = $this->getDoctrine()->getRepository(Training::class)->findAll();
         return $this->render('medewerker/editSport.html.twig', [
+            'posts' => $posts,
+        ]);
+    }
+
+    /**
+     * @Route("/modify/{id}", name="modify")
+     */
+    public function updateAction($id)
+    {
+        $posts = $this->getDoctrine()->getRepository(Training::class)->find($id);
+        return $this->render('medewerker/modifySport.html.twig', [
             'posts' => $posts,
         ]);
     }
