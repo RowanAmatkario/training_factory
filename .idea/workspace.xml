@@ -3,12 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="3102e986-8083-49e7-8d80-eeba549e77b7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/DirecteurController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DirecteurController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/TrainingType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/TrainingType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/medewerker/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/medewerker/add.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/medewerker/editSport.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/medewerker/editSport.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/medewerker/form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/medewerker/form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/medewerker/modifySport.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/medewerker/modifySport.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/bezoeker/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bezoeker/login.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -117,6 +117,8 @@
       <path value="$PROJECT_DIR$/vendor/symfony/security-csrf" />
       <path value="$PROJECT_DIR$/vendor/symfony/security-http" />
       <path value="$PROJECT_DIR$/vendor/rackspace/php-opencloud" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
     </include_path>
   </component>
   <component name="ProjectId" id="1U6KiWjqJl60qcZ26XFXFkGep2C" />
@@ -124,7 +126,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../training_factory_rowan" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -187,6 +189,8 @@
       <workItem from="1575531966872" duration="9674000" />
       <workItem from="1575579164702" duration="16000" />
       <workItem from="1575579182350" duration="4303000" />
+      <workItem from="1575631506792" duration="12000" />
+      <workItem from="1575631523267" duration="2140000" />
     </task>
     <servers />
   </component>
