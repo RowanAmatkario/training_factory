@@ -14,6 +14,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 USE Doctrine\Common\Annotations\Annotation;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 
 class BezoekerController extends AbstractController
@@ -105,6 +106,24 @@ class BezoekerController extends AbstractController
 
     public function succesAction(){
         return $this->render('bezoeker/kartactiviteiten.html.twig');
+    }
+
+
+
+    /**
+     * @Route("/login", name="app_login")
+     */
+    public function login(AuthenticationUtils $authenticationUtils)
+    {
+
+        $error = $authenticationUtils->getLastAuthenticationError();
+
+        $lastUsername = $authenticationUtils->getLastUsername();
+
+        return $this->render('bezoeker/login.html.twig', [
+            'last_username' => $lastUsername,
+            'error'         => $error,
+        ]);
     }
 
 
