@@ -25,6 +25,7 @@ class UserFixtures extends Fixture
             'WelcomeNewMember'
         ));
         $manager->persist($user);
+
         $user = new User();
         $user->setEmail('vito.jeffrey@gmail.com');
         $user->setRoles(['ROLE_USER']);

@@ -2,6 +2,7 @@
 
 {% block title %}Inloggen{% endblock %}
 
+
 {% block body %}
     {{ parent() }}
 
@@ -27,7 +28,8 @@
                    value="{{ csrf_token('authenticate') }}"> <br>
             <button class="btn btn-outline-primary" type="submit">
                 Inloggen
-            </button>
+            </button> <br> <br>
+            <button type="button" class="btn btn-outline-primary"> <a href="{{ 'registration' }}">Nog geen account ?</a></button>
         </form>
     </div>
 {% endblock %}

@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20191203125557 extends AbstractMigration
+final class Version20191209075708 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,7 +22,8 @@ final class Version20191203125557 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('CREATE TABLE person (id INT AUTO_INCREMENT NOT NULL, loginname VARCHAR(15) NOT NULL, password VARCHAR(50) NOT NULL, firstname VARCHAR(50) NOT NULL, preprovision VARCHAR(255) NOT NULL, lastname VARCHAR(50) NOT NULL, dateofbirth VARCHAR(255) NOT NULL, gender VARCHAR(50) NOT NULL, emailaddress VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_34DCD1766D1A90C6 ON person (loginname)');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_34DCD17635C246D5 ON person (password)');
     }
 
     public function down(Schema $schema) : void
@@ -30,6 +31,7 @@ final class Version20191203125557 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('DROP TABLE person');
+        $this->addSql('DROP INDEX UNIQ_34DCD1766D1A90C6 ON person');
+        $this->addSql('DROP INDEX UNIQ_34DCD17635C246D5 ON person');
     }
 }
