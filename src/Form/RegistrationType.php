@@ -9,7 +9,10 @@ use App\Entity\Training;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -22,7 +25,7 @@ class RegistrationType extends AbstractType
     {
         $builder
             ->add('loginname', TextType::class )
-            ->add('password', TextType::class)
+            ->add('password', PasswordType::class)
             ->add('firstname', TextType::class)
             ->add('preprovision', TextType::class)
             ->add('lastname', TextType::class)
@@ -34,7 +37,7 @@ class RegistrationType extends AbstractType
                     'Geen' => 'Geen',
                 )
             ))
-            ->add('emailaddress', TextType::class)
+            ->add('emailaddress', EmailType::class)
             ->add('Registeren', SubmitType::class);
     }
     public function configureOptions(OptionsResolver $resolver)

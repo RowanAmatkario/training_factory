@@ -52,7 +52,6 @@ class BezoekerController extends AbstractController
     }
 
 
-//Form database
     /**
      * @Route("/registration", name="registration")
      */
@@ -78,11 +77,6 @@ class BezoekerController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
-
-
-
-
 
     /**
      * @Route("/login", name="app_login")
