@@ -18,15 +18,17 @@
     {% endblock %}
 </head>
 <body>
-{% block nav %}
-
+{% block body %}
 
     <img src="{{ asset('image/header.webp') }}" alt="logo" style="width:150px; float: left;">
     <h1>Training Centrum <br>Den Haag</h1>
 
+
+
+
     <div class="button">
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-            <button type="button" class="btn btn-light" style="margin-right: 5px;"> <a href="{{ path('app_logout') }}">Uitloggen</a></button>
+            <button type="button" class="btn btn-light" style="margin-right: 5px;"> <a href="{{ path ('app_logout') }}">Uitloggen</a></button>
         {% else %}
             <button type="button" class="btn btn-light" style="margin-right: 5px;"> <a href="{{ path ('login') }}">Inloggen</a></button>
         {% endif %}
@@ -46,33 +48,22 @@
                 <a class="nav-link" href="{{ path('homepage') }}">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('kartactiviteiten') }}">Trainings aanbod</a>
+                <a class="nav-link" href="{{ path('kartactiviteiten') }}">Instructeur</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('registration')  }}">Lid worden</a>
+                <a class="nav-link" href="{{ path('registration')  }}">Leden</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('gedrag')  }}">Gedragregels</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Locatie & Contact</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ path('training_index')  }}">Administrator</a>
+                <a class="nav-link" href="{{ path('training_index')  }}">Trainingen</a>
             </li>
 
         </ul>
     </nav>
-    {% endblock %}
-{% block body %}
 {% endblock %}
 
 {% block footer %}
 
 {% endblock %}
-
-
-
 
 </body>
 </html>

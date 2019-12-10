@@ -20,7 +20,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class DirecteurController extends AbstractController
 {
     /**
-     * @Route("/", name="training_index", methods={"GET"})
+     * @Route("/training", name="training_index", methods={"GET"})
      */
     public function index(TrainingRepository $trainingRepository): Response
     {
@@ -30,7 +30,7 @@ class DirecteurController extends AbstractController
     }
 
     /**
- * @Route("/add", name="training_new", methods={"GET","POST"})
+ * @Route("/training/add", name="training_new", methods={"GET","POST"})
  */
     public function new(Request $request):Response
     {
@@ -58,7 +58,7 @@ class DirecteurController extends AbstractController
 
 
     /**
-     * @Route("/{id}", name="training_show", methods={"GET"})
+     * @Route("/training/{id}", name="training_show", methods={"GET"})
      */
     public function show(Training $training): Response
     {
@@ -68,7 +68,7 @@ class DirecteurController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="training_edit", methods={"GET","POST"})
+     * @Route("/training/{id}/edit", name="training_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Training $training): Response
     {
@@ -88,7 +88,7 @@ class DirecteurController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="training_delete", methods={"DELETE"})
+     * @Route("/training/{id}", name="training_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Training $training): Response
     {
@@ -99,6 +99,11 @@ class DirecteurController extends AbstractController
         }
 
         return $this->redirectToRoute('training_index');
+    }
+
+    public function adminDashboard()
+    {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
     }
 
 

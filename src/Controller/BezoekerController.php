@@ -42,7 +42,6 @@ class BezoekerController extends AbstractController
     }
 
 
-
     /**
      * @Route("/login", name="login")
      */
@@ -50,7 +49,6 @@ class BezoekerController extends AbstractController
     {
         return $this->render('bezoeker/login.html.twig');
     }
-
 
     /**
      * @Route("/registration", name="registration")
@@ -92,6 +90,18 @@ class BezoekerController extends AbstractController
             'last_username' => $lastUsername,
             'error'         => $error,
         ]);
+    }
+    /**
+     * @Route("/gedragsregels", name="gedrag")
+     */
+    public function gedragAction()
+    {
+        return $this->render('bezoeker/gedragsregels.html.twig');
+    }
+
+    public function userDashboard()
+    {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
     }
 
 

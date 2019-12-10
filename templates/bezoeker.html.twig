@@ -13,6 +13,10 @@
     <img src="image/header.webp" alt="logo" style="width:200px; float: left;">
     <h1>Training Centrum <br>Den Haag</h1>
 
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <button type="button" class="btn btn-light" style="margin-right: 5px;"> <a href="{{ 'login' }}">Inloggen</a></button>
+    {% endif %}
+
     <div class="button">
         <button type="button" class="btn btn-light" style="margin-right: 5px;">Inloggen</button>
         <button type="button" class="btn btn-light">Reset Wachtwoord</button>
