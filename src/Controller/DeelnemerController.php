@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class DeelnemerController extends AbstractController
 {
     /**
-     * @Route("/training/{id}", name="agenda")
+     * @Route("/agenda/{id}", name="agenda")
      */
     public function agendaAction($id)
     {

@@ -1,43 +1,21 @@
 {% extends 'base.html.twig' %}
-
 {% block body %}
     {{ parent() }}
-    <div class="container" style="text-align: center;margin-top: 1%;">
-        <h1>Activiteiten</h1> <br>
-
-    </div>
-<div class="container-fluid">
-    <div class="card col-4 float-left" style="width: 50%; margin-top: 2%;">
-        <img src="{{ asset ('image/mma.jpg')}}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h4 class="card-title">{{posts[0].naam}}</h4>
-            <p class="card-text">{{ posts[0].description }}.</p>
-        </div>
-        <div class="card-footer text-muted">
-            {{posts[0].costs}}
-        </div>
-    </div>
-    <div class="card col-4 float-left" style="width: 50%; margin-top: 2%;">
-        <img src="{{ asset ('image/kickbox.jpg')}}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h4 class="card-title">{{posts[1].naam}}</h4>
-            <p class="card-text">{{ posts[1].description }}.</p>
-        </div>
-        <div class="card-footer text-muted">
-            {{posts[1].costs}}
-        </div>
-    </div>
-    <div class="card col-4 float-left" style="width: 50%; margin-top: 2%;">
-        <img src="{{ asset ('image/stootzak.png')}}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h4 class="card-title">{{posts[2].naam}}</h4>
-            <p class="card-text">{{ posts[2].description }}.</p>
-        </div>
-        <div class="card-footer text-muted">
-            {{posts[2].costs}}
-        </div>
-    </div>
+    <div class="container-fluid">
+        {% for post in posts %}
+            <div class="card col-4 float-left" style="width: 50%; margin-top: 2%;">
+                <img src="image/{{post.naam}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h4 class="card-title">{{post.naam}}</h4>
+                </div>
+                <div class="card-footer text-muted">
+                    {{post.costs}}
+                </div>
+                <button type="button" class="btn btn-light"><a href="{{ post.id }}">Plannen</a></button>
+            </div>
+        {% endfor %}
 
 
-
+    </div>
 {% endblock %}
+

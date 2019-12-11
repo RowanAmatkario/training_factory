@@ -106,6 +106,14 @@ class DirecteurController extends AbstractController
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
     }
 
+    /**
+     * @Route("/leden", name="leden")
+     */
+
+    public function ledenAction(){
+        return $this->render('deelnemer/leden.html.twig');
+    }
+
 
 
 }
