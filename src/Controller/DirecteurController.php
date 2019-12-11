@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 
+use App\Entity\Person;
 use App\Entity\Training;
 use App\Form\TrainingType;
 use App\Repository\TrainingRepository;
@@ -111,7 +112,10 @@ class DirecteurController extends AbstractController
      */
 
     public function ledenAction(){
-        return $this->render('deelnemer/leden.html.twig');
+        $lid = $this->getDoctrine()->getRepository(Person::class)->findAll();
+        return $this->render('deelnemer/leden.html.twig', [
+            'lid' => $lid,
+        ]);
     }
 
 

@@ -4,7 +4,28 @@
     <div class="container">
        <h2 style="margin-top: 2%;">Leden van Training Factory Den Haag</h2>
 
+            <table class="table table-borderless" style="margin-top: 4%;">
+                <thead>
+                <tr>
+                    <th>Voornaam</th>
+                    <th>Achternaam</th>
+                    <th>Email</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for leden in lid %}
+                <tr>
+                    <td>{{leden.firstname}}</td>
+                    <td>{{leden.lastname}}</td>
+                    <td>{{leden.emailaddress}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
 
     </div>
 {% endblock %}
+
+
 
