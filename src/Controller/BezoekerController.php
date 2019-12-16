@@ -106,6 +106,14 @@ class BezoekerController extends AbstractController
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
     }
 
+    /**
+     * @Route("/contact", name="contact")
+     */
+    public function contactAction()
+    {
+        return $this->render('bezoeker/contact.html.twig');
+    }
+
 
 
 
