@@ -6,6 +6,7 @@ namespace App\Controller;
 use App\Entity\Lesson;
 use App\Entity\Person;
 use App\Entity\Training;
+use App\Entity\User;
 use App\Form\RegistrationType;
 use App\Form\TrainingType;
 use Symfony\Component\HttpFoundation\Request;
@@ -33,14 +34,15 @@ class BezoekerController extends AbstractController
 
         ];
         $posts = $this->getDoctrine()->getRepository(Training::class)->findAll();
+        $user = $this->getDoctrine()->getRepository(User::class)->findAll();
 
         return $this->render( 'bezoeker/index.html.twig', [
             'posts' => $posts,
             'comments' => $comments,
+            'user' => $user,
         ]);
 
     }
-
 
     /**
      * @Route("/login", name="login")
