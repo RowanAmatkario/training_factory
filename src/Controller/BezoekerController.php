@@ -81,18 +81,18 @@ class BezoekerController extends AbstractController
     /**
      * @Route("/login", name="app_login")
      */
-    public function login(AuthenticationUtils $authenticationUtils)
-    {
-
-        $error = $authenticationUtils->getLastAuthenticationError();
-
-        $lastUsername = $authenticationUtils->getLastUsername();
-
-        return $this->render('bezoeker/login.html.twig', [
-            'last_username' => $lastUsername,
-            'error'         => $error,
-        ]);
-    }
+//    public function login(AuthenticationUtils $authenticationUtils)
+//    {
+//
+//        $error = $authenticationUtils->getLastAuthenticationError();
+//
+//        $lastUsername = $authenticationUtils->getLastUsername();
+//
+//        return $this->render('bezoeker/login.html.twig', [
+//            'last_username' => $lastUsername,
+//            'error'         => $error,
+//        ]);
+//    }
     /**
      * @Route("/gedragsregels", name="gedrag")
      */

@@ -9,17 +9,31 @@ use App\Entity\Training;
 use App\Form\TrainingType;
 use App\Repository\TrainingRepository;
 use Doctrine\DBAL\Types\TextType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/admin")
- */
+    /**
+    * @Route("/admin")
+    */
+
+    /**
+    * Require ROLE_ADMIN for *every* controller method in this class.
+    *
+    * @IsGranted("ROLE_ADMIN")
+    */
 
 class DirecteurController extends AbstractController
 {
+
+    /**
+     * Require ROLE_ADMIN for only this controller method.
+     *
+     * @IsGranted("ROLE_ADMIN")
+     */
+
     /**
      * @Route("/training", name="training_index", methods={"GET"})
      */

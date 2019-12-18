@@ -31,7 +31,13 @@
             <button type="button" class="btn btn-light" style="margin-right: 5px;"> <a href="{{ path ('login') }}">Inloggen</a></button>
         {% endif %}
 
-        <button type="button" class="btn btn-light">Reset Wachtwoord</button>
+        <button type="button" class="btn btn-light">
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                Ingelogd : {{ app.user.email }}
+            {% else %}
+                Niet ingelogd
+            {% endif %}
+        </button>
     </div>
 
 
@@ -64,6 +70,7 @@
     </nav>
     {% endblock %}
 {% block body %}
+
 {% endblock %}
 
 {% block footer %}

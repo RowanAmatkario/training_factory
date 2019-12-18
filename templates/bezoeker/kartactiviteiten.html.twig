@@ -2,16 +2,16 @@
 {% block body %}
     {{ parent() }}
     <div class="container-fluid">
-        {% for post in posts %}
+        {% for training in trainingen %}
             <div class="card col-4 float-left" style="width: 50%; margin-top: 2%;">
-                <img src="image/{{post.naam}}" class="card-img-top" alt="...">
+                <img src="image/{{training.naam}}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h4 class="card-title">{{post.naam}}</h4>
+                    <h4 class="card-title">{{training.naam}}</h4>
                 </div>
                 <div class="card-footer text-muted">
-                    {{post.costs}}
+                    {{training.costs}}
                 </div>
-                <button type="button" class="btn btn-light"><a href="{{ post.id }}">Plannen</a></button>
+                <button type="button" class="btn btn-light"><a href="{{ path('agenda',{'id':training.id}) }}">Plannen</a></button>
             </div>
         {% endfor %}
 

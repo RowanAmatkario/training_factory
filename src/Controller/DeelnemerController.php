@@ -5,6 +5,7 @@ namespace App\Controller;
 
 
 use App\Entity\Training;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -14,6 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DeelnemerController extends AbstractController
 {
+
     /**
      * @Route("/agenda/{id}", name="agenda")
      */
@@ -30,9 +32,9 @@ class DeelnemerController extends AbstractController
      */
     public function kartactiviteitenAction()
     {
-        $posts = $this->getDoctrine()->getRepository(Training::class)->findAll();
+        $trainingen = $this->getDoctrine()->getRepository(Training::class)->findAll();
         return $this->render('bezoeker/kartactiviteiten.html.twig', [
-            'posts' => $posts,
+            'trainingen' => $trainingen,
         ]);
     }
 

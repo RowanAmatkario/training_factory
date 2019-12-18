@@ -28,18 +28,12 @@
 
     <div class="button">
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-            <button type="button" class="btn btn-light" style="margin-right: 5px;"> <a href="{{ path('app_logout') }}">Uitloggen</a></button>
+            <button type="button" class="btn btn-light" style="margin-right: 5px;"> <a href="{{ path ('app_logout') }}">Uitloggen</a></button>
         {% else %}
             <button type="button" class="btn btn-light" style="margin-right: 5px;"> <a href="{{ path ('login') }}">Inloggen</a></button>
         {% endif %}
 
-        <button type="button" class="btn btn-light">
-            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                Ingelogd : {{ app.user.email }}
-            {% else %}
-                Niet ingelogd
-            {% endif %}
-        </button>
+        <button type="button" class="btn btn-light">Reset Wachtwoord</button>
     </div>
 
 
@@ -54,13 +48,10 @@
                 <a class="nav-link" href="{{ path('homepage') }}">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('kartactiviteiten') }}">Instructeur</a>
+                <a class="nav-link" href="{{ path('kartactiviteiten') }}">Lessen Plannen</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('leden')  }}">Leden</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ path('training_index')  }}">Trainingen</a>
+                <a class="nav-link" href="{{ path('leden')  }}">Lessen Beheren</a>
             </li>
 
         </ul>
