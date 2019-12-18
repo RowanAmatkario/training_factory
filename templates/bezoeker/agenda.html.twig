@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 {% block body %}
     {{ parent() }}
-    <div class="container">
-            <div class="card col-4 float-left" style="width: 50%; margin-top: 2%;">
-                <div class="card-body">
-                    <h4 class="card-title">{{ training.naam }}</h4>
+
+
+    <div class="container" style="margin-top: 2%;">
+                    <h3 style="text-align: center;">{{ training.naam }}</h3>
                     <table class="table table-borderless">
                         <tbody>
                         <tr>
@@ -17,79 +17,31 @@
                         </tr>
                         </tbody>
                     </table>
-                </div>
 
-
-            </div>
-        <div class="container">
-        <div class="card" style="width: 100%;">
-            <div class="card-body">
-                <p class="card-text">
-                <h3>Inschrijven op les</h3>
-                <ul class="nav nav-pills">
-                    <li class="nav-item">
-                        <a class="nav-link active" style="background-color: #e7e7e7; color: black;" data-toggle="pill"
-                           href="#maandag">Maandag</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" style="background-color: #e7e7e7; color: black;" data-toggle="pill"
-                           href="#dinsdag">Dinsdag</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" style="background-color: #e7e7e7; color: black;" data-toggle="pill"
-                           href="#woensdag">Woensdag</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" style="background-color: #e7e7e7; color: black;" data-toggle="pill"
-                           href="#donderdag">Donderdag</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" style="background-color: #e7e7e7; color: black;" data-toggle="pill"
-                           href="#vrijdag">Vrijdag</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" style="background-color: #e7e7e7; color: black;" data-toggle="pill"
-                           href="#zaterdag">Zaterdag</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" style="background-color: #e7e7e7; color: black;" data-toggle="pill"
-                           href="#zondag">Zondag</a>
-                    </li>
-                </ul>
-
-                <!-- Tab panes -->
-                <div class="tab-content">
-                    {% for trainingen in training %}
-
-                        {% for les in training.getLessons %}
-                            <div class="tab-pane container active" id="maandag">
-                                <div class="card col-4" style="width: 15rem; margin-top: 3%; height: 150px;">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{training.naam}}</h5>
-                                        <h6 class="card-subtitle mb-2 text-muted">{{ les.getLocation }}</h6>
-                                        <div class="card-footer text-muted">
-                                            <button type="button" class="btn btn-light" style="width: 80%;">Inplannen</button>
-                                        </div>
-                                    </div>
-                                </div>
+        <h3 style="text-align: center; margin-top: 2%;">Kies uw Datum en Tijd</h3>
+        <table class="table table-borderless">
+            <tbody>
+            <tr>
+                <td>
+                    {% for les in training.getLessons %}
+                        <div class="card" style="width: 18rem; height: 5%;">
+                            <div class="card-body">
+                                <p class="card-text">{{ les.date|date('j F, Y') }} {{ les.time|date('h:i') }}</p>
+                                <a href="#" class="card-link">Card link</a>
+                                <a href="#" class="card-link">Another link</a>
                             </div>
-                            <div class="tab-pane container fade" id="dinsdag"></div>
-                            <div class="tab-pane container fade" id="woensdag"></div>
-                            <div class="tab-pane container fade" id="donderdag"></div>
-                            <div class="tab-pane container fade" id="vrijdag"></div>
-                            <div class="tab-pane container fade" id="zaterdag"></div>
-                            <div class="tab-pane container fade" id="zondag"></div>
-                        {% endfor %}
+                        </div>
                     {% endfor %}
-                </div>
-                </p>
-            </div>
-        </div>
-        </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
 
 
     </div>
 {% endblock %}
+
+
 
 
 

@@ -63,11 +63,19 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ path('contact')  }}">Locatie & Contact</a>
             </li>
+            {% if is_granted('ROLE_ADMIN') %}
             <li class="nav-item">
                 <a class="nav-link" href="{{ path('training_index')  }}">Administrator</a>
             </li>
+            {% endif %}
+            {% if is_granted('ROLE_INSTRUCTOR') %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('gedrag')  }}">Instructeur</a>
+                </li>
+            {% endif %}
         </ul>
     </nav>
+
     {% endblock %}
 {% block body %}
 

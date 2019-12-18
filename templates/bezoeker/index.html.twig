@@ -36,9 +36,9 @@
 
     </div>
     <div class="container">
-        <h1>Welkom  {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <h1>Welkom {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 {{ app.user.email }}
-            {% endif %}</h1> <br>
+            {% endif %} bij Training Factory</h1> <br>
         {% for comment in comments %}
             {{ comment }}
         {% endfor %}

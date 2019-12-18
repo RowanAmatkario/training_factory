@@ -2,11 +2,12 @@
 {% block body %}
     {{ parent() }}
     <div class="container-fluid">
+        <h1 style="margin-top: 2%; text-align: center;">Kies uw training</h1>
         {% for training in trainingen %}
             <div class="card col-4 float-left" style="width: 50%; margin-top: 2%;">
-                <img src="image/{{training.naam}}" class="card-img-top" alt="...">
+                <img src="{{ asset ('image/training.png')}}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h4 class="card-title">{{training.naam}}</h4>
+                    <h2 class="card-title" style="text-align: center;">{{training.naam}}</h2>
                 </div>
                 <div class="card-footer text-muted">
                     {{training.costs}}
