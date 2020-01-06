@@ -24,11 +24,10 @@
             <tr>
                 <td>
                     {% for les in training.getLessons %}
-                        <div class="card" style="width: 18rem; height: 5%;">
+                        <div class="card" style="width: 18rem; height: 5%; float:left; margin-right: 3%;">
                             <div class="card-body">
                                 <p class="card-text">{{ les.date|date('j F, Y') }} {{ les.time|date('h:i') }}</p>
-                                <a href="#" class="card-link">Card link</a>
-                                <a href="#" class="card-link">Another link</a>
+                                <a href="#" class="card-link">Registreer uw les</a>
                             </div>
                         </div>
                     {% endfor %}

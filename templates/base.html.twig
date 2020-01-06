@@ -52,9 +52,6 @@
                 <a class="nav-link" href="{{ path('homepage') }}">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('kartactiviteiten') }}">Trainings aanbod</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="{{ path('registration')  }}">Lid worden</a>
             </li>
             <li class="nav-item">
@@ -71,6 +68,11 @@
             {% if is_granted('ROLE_INSTRUCTOR') %}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('gedrag')  }}">Instructeur</a>
+                </li>
+            {% endif %}
+            {% if is_granted('ROLE_USER') %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('profiel')  }}">Profiel</a>
                 </li>
             {% endif %}
         </ul>

@@ -5,28 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>{% block title %} Training Centrum Den Haag{% endblock %}</title>
-
+    {% block stylesheets %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+              integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ asset('/css/font-awesome.css') }}">
+        <link rel="stylesheet" href="{{ asset('index.css') }}">
+    {% endblock %}
+    {% block javascripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    {% endblock %}
 </head>
 <body>
-{% block body %}
+{% block nav %}
 
-    <img src="image/header.webp" alt="logo" style="width:200px; float: left;">
+
+    <img src="{{ asset('image/header.webp') }}" alt="logo" style="width:150px; float: left;">
     <h1>Training Centrum <br>Den Haag</h1>
 
-    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        <button type="button" class="btn btn-light" style="margin-right: 5px;"> <a href="{{ 'login' }}">Inloggen</a></button>
-    {% endif %}
-
     <div class="button">
-        <button type="button" class="btn btn-light" style="margin-right: 5px;">Inloggen</button>
-        <button type="button" class="btn btn-light">Reset Wachtwoord</button>
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <button type="button" class="btn btn-light" style="margin-right: 5px;"> <a href="{{ path('app_logout') }}">Uitloggen</a></button>
+        {% else %}
+            <button type="button" class="btn btn-light" style="margin-right: 5px;"> <a href="{{ path ('login') }}">Inloggen</a></button>
+        {% endif %}
+
+        <button type="button" class="btn btn-light">
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                Ingelogd : {{ app.user.email }}
+            {% else %}
+                Niet ingelogd
+            {% endif %}
+        </button>
     </div>
 
 
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-top: 3%;" >
         <a class="navbar-brand" href="#">
-            <img src="image/logo.jpg" alt="logo" style="width:50px;">
+            <img src="{{ asset('image/logo.jpg') }}" alt="logo" style="width:50px;">
         </a>
 
         <ul class="navbar-nav">
@@ -34,39 +52,29 @@
                 <a class="nav-link" href="{{ path('homepage') }}">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Inschrijven op les</a>
+                <a class="nav-link" href="{{ path('kartactiviteiten') }}">Inschrijven op les</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Overzicht inschrijvingen</a>
+                <a class="nav-link" href="{{ path('homepage') }}">Overzicht inschrijvingen</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Gegevens lid wijzigen</a>
+                <a class="nav-link" href="{{ path('homepage') }}">Gegevens Wijzigen</a>
             </li>
-
         </ul>
     </nav>
+
+{% endblock %}
+{% block body %}
+
 {% endblock %}
 
 {% block footer %}
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-top: 1%;">
-        <a class="navbar-brand" href="#">
-            <img src="image/logo.jpg" alt="logo" style="width:50px;">
-        </a>
 
-        <h5>© 2019 Copyright: TrainingFactory.nl</h5>
-    </nav>
 {% endblock %}
-{% block stylesheets %}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
-          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/font-awesome.css">
-    <link rel="stylesheet" href="index.css">
-{% endblock %}
-{% block javascripts %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-{% endblock %}
+
+
+
+
 </body>
 </html>
 

@@ -46,5 +46,13 @@ class DeelnemerController extends AbstractController
         return $this->render('bezoeker/kartactiviteiten.html.twig');
     }
 
+    /**
+     * @Route("/profiel", name="profiel")
+     */
+
+    public function profielAction(){
+        return $this->render('deelnemer/profiel.html.twig');
+    }
+
 
 }
