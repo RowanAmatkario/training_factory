@@ -22,6 +22,7 @@
 
 
     <img src="{{ asset('image/header.webp') }}" alt="logo" style="width:150px; float: left;">
+<div style="background-image:url('{{ asset('image/bg.jpg') }}')">,
     <h1>Training Centrum <br>Den Haag</h1>
 
     <div class="button">
@@ -54,9 +55,11 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ path('kartactiviteiten') }}">Inschrijven op les</a>
             </li>
+            {% if is_granted('ROLE_USER') %}
             <li class="nav-item">
                 <a class="nav-link" href="{{ path('homepage') }}">Overzicht inschrijvingen</a>
             </li>
+            {% endif %}
             <li class="nav-item">
                 <a class="nav-link" href="{{ path('homepage') }}">Gegevens Wijzigen</a>
             </li>

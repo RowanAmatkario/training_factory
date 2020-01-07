@@ -1,0 +1,33 @@
+{% extends 'instructeur.html.twig' %}
+{% block body %}
+    {{ parent() }}
+    <div class="container">
+        <h2 style="margin-top: 2%;">Overzicht inschrijvingen</h2>
+
+        <table class="table table-borderless" style="margin-top: 4%;">
+            <thead>
+            <tr>
+                <th>Datum</th>
+                <th>Tijd</th>
+                <th>Lokaal</th>
+                <th>Sport</th>
+                <th>Aantal ingeschreven deelnemers</th>
+                <th>Deelnemerslijst</th>
+                <th>Aanpassen</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for leden in lid %}
+                <tr>
+                    <td>{{ leden.date|date('j F, Y') }}</td>
+                    <td>{{ leden.time|date('h:i') }}</td>
+                </tr>
+
+
+            {% endfor %}
+            </tbody>
+        </table>
+
+
+    </div>
+{% endblock %}
