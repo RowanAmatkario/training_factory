@@ -20,7 +20,6 @@
 <body>
 {% block nav %}
 
-
     <img src="{{ asset('image/header.webp') }}" alt="logo" style="width:150px; float: left;">
     <div style="background-image:url('{{ asset('image/bg.jpg') }}')">,
 
@@ -53,9 +52,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ path('homepage') }}">Home</a>
             </li>
+            {% if is_granted('ROLE_USER') %}
+                {% else %}
             <li class="nav-item">
                 <a class="nav-link" href="{{ path('registration')  }}">Lid worden</a>
             </li>
+            {% endif %}
             <li class="nav-item">
                 <a class="nav-link" href="{{ path('gedrag')  }}">Gedragregels</a>
             </li>

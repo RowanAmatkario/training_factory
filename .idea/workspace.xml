@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3102e986-8083-49e7-8d80-eeba549e77b7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Form/LessonType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/InstructeurController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InstructeurController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/deelnemer/profiel.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/deelnemer/profiel.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/instructeur.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/instructeur.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/medewerker/planLes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/medewerker/planLes.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -201,7 +205,7 @@
       <workItem from="1578314126370" duration="3245000" />
       <workItem from="1578382666632" duration="4378000" />
       <workItem from="1578388617867" duration="26000" />
-      <workItem from="1578388648441" duration="251000" />
+      <workItem from="1578388648441" duration="7715000" />
     </task>
     <servers />
   </component>

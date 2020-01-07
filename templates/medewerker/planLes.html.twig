@@ -3,11 +3,15 @@
 {% block body %}
     {{ parent() }}
 
+        <div class="container" style="margin-top: 2%;">
+            <h2 style="text-align: center;">Les Plannen</h2>
+            <table class="table table-borderless">
+                <tbody>
+                <tr><td>{{ form(form) }}</td></tr>
 
-
-    <div class="container" style="margin-top: 2%;">
-
-    </div>
+                </tbody>
+            </table>
+        </div>
 {% endblock %}
 
 
