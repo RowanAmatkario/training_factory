@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20191209075826 extends AbstractMigration
+final class Version20200107092329 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,8 +22,7 @@ final class Version20191209075826 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('CREATE UNIQUE INDEX UNIQ_34DCD1766D1A90C6 ON person (loginname)');
-        $this->addSql('CREATE UNIQUE INDEX UNIQ_34DCD17635C246D5 ON person (password)');
+        $this->addSql('ALTER TABLE user ADD firstname VARCHAR(255) DEFAULT NULL, ADD lastname VARCHAR(255) DEFAULT NULL, DROP naam, DROP achternaam');
     }
 
     public function down(Schema $schema) : void
@@ -31,7 +30,6 @@ final class Version20191209075826 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('DROP INDEX UNIQ_34DCD1766D1A90C6 ON person');
-        $this->addSql('DROP INDEX UNIQ_34DCD17635C246D5 ON person');
+        $this->addSql('ALTER TABLE user ADD naam VARCHAR(255) CHARACTER SET utf8mb4 DEFAULT NULL COLLATE `utf8mb4_unicode_ci`, ADD achternaam VARCHAR(255) CHARACTER SET utf8mb4 DEFAULT NULL COLLATE `utf8mb4_unicode_ci`, DROP firstname, DROP lastname');
     }
 }
