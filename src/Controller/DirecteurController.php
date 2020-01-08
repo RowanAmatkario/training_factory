@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Entity\Person;
 use App\Entity\Training;
+use App\Entity\User;
 use App\Form\TrainingType;
 use App\Repository\TrainingRepository;
 use Doctrine\DBAL\Types\TextType;
@@ -116,7 +117,7 @@ class DirecteurController extends AbstractController
      */
 
     public function ledenAction(){
-        $lid = $this->getDoctrine()->getRepository(Person::class)->findAll();
+        $lid = $this->getDoctrine()->getRepository(User::class)->findAll();
         return $this->render('deelnemer/leden.html.twig', [
             'lid' => $lid,
         ]);

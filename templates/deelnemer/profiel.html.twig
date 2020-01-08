@@ -5,15 +5,22 @@
         <div class="row content" style="margin-top: 3%;">
             <div class="col-sm-3 sidenav">
                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                <h4 style="text-align: center">{{ app.user.email }}</h4>
+                <h4 style="text-align: center">{{ app.user.firstname }}</h4>
                 {% endif %}
                 <img src="{{ asset('image/user.jpg') }}" alt="logo" style="width:100%;">
             </div>
 
             <div class="col-sm-9">
                 <hr>
-                <h2>Uw gegevens</h2>
-                <p>Naam</p>
+                <h2 style="margin-bottom: 4%;">Uw gegevens</h2>
+                <table class="table table-borderless">
+                    <tbody>
+                    <tr><td><h5>Email adres : </h5>{{ app.user.email }}</td></tr>
+                    <tr><td><h5>Voornaam : </h5>{{ app.user.firstname }}</td></tr>
+                    <tr><td><h5>Achternaam : </h5>{{ app.user.lastname }}</td></tr>
+
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

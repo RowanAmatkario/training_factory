@@ -18,75 +18,77 @@
     {% endblock %}
 </head>
 <body>
-{% block nav %}
 
-    <img src="{{ asset('image/header.webp') }}" alt="logo" style="width:150px; float: left;">
-    <div style="background-image:url('{{ asset('image/bg.jpg') }}')">,
+<img src="{{ asset('image/header.webp') }}" alt="logo" style="width:150px; float: left;">
+<div style="background-image:url('{{ asset('image/bg.jpg') }}')">,
 
     <h1>Training Centrum <br>Den Haag</h1>
-
-    <div class="button">
-        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-            <button type="button" class="btn btn-light" style="margin-right: 5px;"> <a href="{{ path('app_logout') }}">Uitloggen</a></button>
-        {% else %}
-            <button type="button" class="btn btn-light" style="margin-right: 5px;"> <a href="{{ path ('login') }}">Inloggen</a></button>
-        {% endif %}
-
-        <button type="button" class="btn btn-light">
-            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                Ingelogd : {{ app.user.firstname }}
-            {% else %}
-                Niet ingelogd
-            {% endif %}
-        </button>
-    </div>
-
-
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-top: 3%;" >
-        <a class="navbar-brand" href="#">
+{% block nav %}
+    <nav class="navbar navbar-expand-md navbar-light bg-light" style="margin-top: 2%;">
+        <a href="#" class="navbar-brand">
             <img src="{{ asset('image/logo.jpg') }}" alt="logo" style="width:50px;">
         </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-nav-item nav-link" href="{{ path('homepage') }}">Home</a>
-            </li>
-            {% if is_granted('ROLE_USER') %}
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-nav-item nav-link" href="{{ path('homepage') }}">Home</a>
+                </li>
+                {% if is_granted('ROLE_USER') %}
                 {% else %}
-            <li class="nav-item">
-                <a class="nav-nav-item nav-link" href="{{ path('registration')  }}">Lid worden</a>
-            </li>
-            {% endif %}
-            <li class="nav-item">
-                <a class="nav-nav-item nav-link" href="{{ path('gedrag')  }}">Gedragregels</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-nav-item nav-link" href="{{ path('contact')  }}">Locatie & Contact</a>
-            </li>
-            {% if is_granted('ROLE_ADMIN') %}
-            <li class="nav-item">
-                <a class="nav-nav-item nav-link" href="{{ path('training_index')  }}">Administrator</a>
-            </li>
-            {% endif %}
-            {% if is_granted('ROLE_USER') %}
+                    <li class="nav-item">
+                        <a class="nav-nav-item nav-link" href="{{ path('registration')  }}">Lid worden</a>
+                    </li>
+                {% endif %}
                 <li class="nav-item">
-                    <a class="nav-nav-item nav-link" href="{{ path('kartactiviteiten')  }}">Les Aanbod</a>
+                    <a class="nav-nav-item nav-link" href="{{ path('gedrag')  }}">Gedragregels</a>
                 </li>
-            {% endif %}
-            {% if is_granted('ROLE_INSTRUCTOR') %}
                 <li class="nav-item">
-                    <a class="nav-nav-item nav-link" href="{{ path('planlessen')  }}">Instructeur</a>
+                    <a class="nav-nav-item nav-link" href="{{ path('contact')  }}">Locatie & Contact</a>
                 </li>
-            {% endif %}
-            {% if is_granted('ROLE_USER') %}
-                <li class="nav-item">
-                    <a class="nav-nav-item nav-link" href="{{ path('profiel')  }}">Profiel</a>
-                </li>
-            {% endif %}
-        </ul>
-    </nav>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li class="nav-item">
+                        <a class="nav-nav-item nav-link" href="{{ path('training_index')  }}">Administrator</a>
+                    </li>
+                {% endif %}
+                {% if is_granted('ROLE_USER') %}
+                    <li class="nav-item">
+                        <a class="nav-nav-item nav-link" href="{{ path('kartactiviteiten')  }}">Les Aanbod</a>
+                    </li>
+                {% endif %}
+                {% if is_granted('ROLE_INSTRUCTOR') %}
+                    <li class="nav-item">
+                        <a class="nav-nav-item nav-link" href="{{ path('planlessen')  }}">Instructeur</a>
+                    </li>
+                {% endif %}
 
+            </ul>
+            <div class="navbar-nav ml-auto">
+
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <button type="button" class="btn btn-light" style="margin-right: 5px;"> <a href="{{ path('app_logout') }}">Uitloggen</a></button>
+                {% else %}
+                    <button type="button" class="btn btn-light" style="margin-right: 5px;"> <a href="{{ path ('login') }}">Inloggen</a></button>
+                {% endif %}
+
+                <button type="button" class="btn btn-light">
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        Ingelogd : {{ app.user.firstname }} {{ app.user.lastname }}
+                    {% else %}
+                        Niet ingelogd
+                    {% endif %}
+                </button>
+                {% if is_granted('ROLE_USER') %}
+                    <li class="nav navbar-nav navbar-right">
+                        <a class="nav-nav-item nav-link" href="{{ path('profiel')  }}">Profiel</a>
+                    </li>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
     {% endblock %}
 {% block body %}
 

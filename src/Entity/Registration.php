@@ -21,6 +21,10 @@ class Registration
      */
     private $payment;
 
+    private $registrationId;
+
+    private $registration_id;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -34,6 +38,18 @@ class Registration
     public function setPayment(?string $payment): self
     {
         $this->payment = $payment;
+
+        return $this;
+    }
+
+    public function getRegistrationId(): ?lesson
+    {
+        return $this->registrationId;
+    }
+
+    public function setRegistrationId(?lesson $registrationId): self
+    {
+        $this->registrationId = $registrationId;
 
         return $this;
     }
