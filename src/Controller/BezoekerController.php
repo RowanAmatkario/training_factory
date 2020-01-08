@@ -9,12 +9,15 @@ use App\Entity\Training;
 use App\Entity\User;
 use App\Form\RegistrationType;
 use App\Form\TrainingType;
+use App\Form\UserType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 USE Doctrine\Common\Annotations\Annotation;
+use Symfony\Component\Security\Core\Encoder\PasswordEncoderInterface;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 
@@ -55,16 +58,17 @@ class BezoekerController extends AbstractController
     /**
      * @Route("/registration", name="registration")
      */
-    public function new(Request $request)
+    public function new(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
-        $person = new Person();
-        $form = $this->createForm(RegistrationType::class, $person);
+        $person = new User();
+        $form = $this->createForm(UserType::class, $person);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
 
             $task = $form->getData();
-
+            $task->setRoles(['ROLE_USER']);
+            $task->setPassword($passwordEncoder->encodePassword($task, $task->getPassword()));
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($task);
             $entityManager->flush();
