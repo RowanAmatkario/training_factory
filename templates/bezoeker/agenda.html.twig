@@ -8,19 +8,19 @@
             <tbody>
             <tr>
                 <td>
-                    {% for les in training[1].getLessons %}
-                        <div class="card" style="width: 18rem; height: 5%; float:left; margin-right: 3%;">
-                            <div class="card-body">
-                                <p class="card-text">{{ les.date|date('j F, Y') }} {{ les.time|date('h:i') }}</p>
-                                <p class="card-text">{{les.location}}</p>
-                                {% if is_granted('ROLE_ADMIN') %}
-                                    <a href="#" class="card-link">Delete</a>
-                                {% endif %}
-                                {% if is_granted('ROLE_USER') %}
-                                    <button type="button" class="btn btn-light" style="margin-right: 5px;"> <a href="{{ path('inschrijving',{'id':les.id}) }}">Registreer</a></button>
-                                {% endif %}
+                    {% for trainingen in training %}
+                        {% for les in training[1].getLessons %}
+                            <div class="card" style="width: 18rem; height: 5%; float:left; margin-right: 3%;">
+                                <div class="card-body">
+                                    <p class="card-text">{{ les.getDate|date('j F, Y') }} {{ les.getTime|date('h:i') }}</p>
+                                    <p class="card-text">{{training[2].naam}}</p>
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                        <a href="#" class="card-link">Delete</a>
+                                    {% endif %}
+                                        <button type="button" class="btn btn-light" style="margin-right: 5px;"> <a href="{{ path('inschrijving',{'id':les.id}) }}">Inschrijven</a></button>
+                                </div>
                             </div>
-                        </div>
+                        {% endfor %}
                     {% endfor %}
                 </td>
             </tr>

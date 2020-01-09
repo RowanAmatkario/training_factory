@@ -122,7 +122,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../training_factory_rowan" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -132,16 +132,16 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Rowan\Desktop\training_factory\src" />
+      <recent name="C:\Users\Rowan\Desktop\training_factory\templates" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Rowan\Desktop\training_factory\src\Form" />
       <recent name="C:\Users\Rowan\Desktop\training_factory\public" />
       <recent name="C:\Users\Rowan\Desktop\training_factory\templates" />
       <recent name="C:\Users\Rowan\Desktop\training_factory\css" />
       <recent name="C:\Users\Rowan\Desktop\training_factory\templates\views\bezoeker" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Rowan\Desktop\training_factory\src" />
-      <recent name="C:\Users\Rowan\Desktop\training_factory\templates" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -209,6 +209,9 @@
       <workItem from="1578483996747" duration="5133000" />
       <workItem from="1578557282095" duration="55000" />
       <workItem from="1578557341033" duration="16552000" />
+      <workItem from="1578588601862" duration="8000" />
+      <workItem from="1578588611979" duration="1819000" />
+      <workItem from="1578591764668" duration="1129000" />
     </task>
     <servers />
   </component>
