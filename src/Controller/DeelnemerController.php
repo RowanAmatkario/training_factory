@@ -7,10 +7,14 @@ namespace App\Controller;
 use App\Entity\Lesson;
 use App\Entity\Registration;
 use App\Entity\Training;
+use App\Entity\User;
+use App\Form\LessonType;
+use App\Form\ProfielType;
 use Guzzle\Http\Message\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Flex\Response;
 
 /**
  * @Route("/user")
@@ -49,13 +53,38 @@ class DeelnemerController extends AbstractController
         return $this->render('bezoeker/kartactiviteiten.html.twig');
     }
 
+
+
+
     /**
      * @Route("/profiel", name="profiel")
      */
+    public function edit(Request $request, User $user): \Symfony\Component\HttpFoundation\Response
+    {
+        $form = $this->createForm(ProfielType::class, $user);
 
-    public function profielAction(){
-        return $this->render('deelnemer/profiel.html.twig');
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $task = $form->getData();
+
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($task);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('task_success');
+        }
+
+
+        return $this->render('deelnemer/profiel.html.twig', [
+            'user' => $user,
+            'form' => $form->createView(),
+        ]);
     }
+
+
+
 
 
     /**
