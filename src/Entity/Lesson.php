@@ -125,37 +125,6 @@ class Lesson
     }
 
 
-    /**
-     * @return Collection|Registration[]
-     */
-    public function getLessonId(): Collection
-    {
-        return $this->lesson_id;
-    }
-
-    public function addLessonId(Registration $lessonId): self
-    {
-        if (!$this->lesson_id->contains($lessonId)) {
-            $this->lesson_id[] = $lessonId;
-            $lessonId->setRegistrationId($this);
-        }
-
-        return $this;
-    }
-
-    public function removeLessonId(Registration $lessonId): self
-    {
-        if ($this->lesson_id->contains($lessonId)) {
-            $this->lesson_id->removeElement($lessonId);
-            // set the owning side to null (unless already changed)
-            if ($lessonId->getRegistrationId() === $this) {
-                $lessonId->setRegistrationId(null);
-            }
-        }
-
-        return $this;
-    }
-
 
 
     /**

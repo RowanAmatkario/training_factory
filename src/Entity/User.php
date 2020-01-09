@@ -50,9 +50,15 @@ class User implements UserInterface
      */
     private $lessons;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Registration", mappedBy="User")
+     */
+    private $registrations;
+
     public function __construct()
     {
         $this->lessons = new ArrayCollection();
+        $this->registrations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -181,6 +187,37 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($lesson->getPerson() === $this) {
                 $lesson->setPerson(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Registration[]
+     */
+    public function getRegistrations(): Collection
+    {
+        return $this->registrations;
+    }
+
+    public function addRegistration(Registration $registration): self
+    {
+        if (!$this->registrations->contains($registration)) {
+            $this->registrations[] = $registration;
+            $registration->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRegistration(Registration $registration): self
+    {
+        if ($this->registrations->contains($registration)) {
+            $this->registrations->removeElement($registration);
+            // set the owning side to null (unless already changed)
+            if ($registration->getUser() === $this) {
+                $registration->setUser(null);
             }
         }
 

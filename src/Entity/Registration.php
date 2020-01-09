@@ -27,6 +27,11 @@ class Registration
      */
     private $registration;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="registrations")
+     */
+    private $User;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +57,18 @@ class Registration
     public function setRegistration(?Lesson $registration): self
     {
         $this->registration = $registration;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->User;
+    }
+
+    public function setUser(?User $User): self
+    {
+        $this->User = $User;
 
         return $this;
     }
