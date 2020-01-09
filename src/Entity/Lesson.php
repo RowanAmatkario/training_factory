@@ -40,16 +40,23 @@ class Lesson
      */
     private $training;
 
-    private $registrations;
-
     private $lesson_id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="lessons")
+     */
+    private $person;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Registration", mappedBy="registration")
+     */
+    private $registrations;
 
     public function __construct()
     {
-        $this->registrations = new ArrayCollection();
         $this->lesson_id = new ArrayCollection();
+        $this->registrations = new ArrayCollection();
     }
-
 
 
     public function getId(): ?int
@@ -93,8 +100,6 @@ class Lesson
         return $this;
     }
 
-
-
     public function getTraining(): ?Training
     {
         return $this->training;
@@ -107,36 +112,6 @@ class Lesson
         return $this;
     }
 
-    /**
-     * @return Collection|Registration[]
-     */
-    public function getRegistrations(): Collection
-    {
-        return $this->registrations;
-    }
-
-    public function addRegistration(Registration $registration): self
-    {
-        if (!$this->registrations->contains($registration)) {
-            $this->registrations[] = $registration;
-            $registration->setRegistrationId($this);
-        }
-
-        return $this;
-    }
-
-    public function removeRegistration(Registration $registration): self
-    {
-        if ($this->registrations->contains($registration)) {
-            $this->registrations->removeElement($registration);
-            // set the owning side to null (unless already changed)
-            if ($registration->getRegistrationId() === $this) {
-                $registration->setRegistrationId(null);
-            }
-        }
-
-        return $this;
-    }
 
     /**
      * @return Collection|Registration[]
@@ -163,6 +138,49 @@ class Lesson
             // set the owning side to null (unless already changed)
             if ($lessonId->getRegistrationId() === $this) {
                 $lessonId->setRegistrationId(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getPerson(): ?User
+    {
+        return $this->person;
+    }
+
+    public function setPerson(?User $person): self
+    {
+        $this->person = $person;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Registration[]
+     */
+    public function getRegistrations(): Collection
+    {
+        return $this->registrations;
+    }
+
+    public function addRegistration(Registration $registration): self
+    {
+        if (!$this->registrations->contains($registration)) {
+            $this->registrations[] = $registration;
+            $registration->setRegistration($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRegistration(Registration $registration): self
+    {
+        if ($this->registrations->contains($registration)) {
+            $this->registrations->removeElement($registration);
+            // set the owning side to null (unless already changed)
+            if ($registration->getRegistration() === $this) {
+                $registration->setRegistration(null);
             }
         }
 

@@ -21,9 +21,11 @@ class Registration
      */
     private $payment;
 
-    private $registrationId;
-
-    private $registration_id;
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Lesson", inversedBy="registrations")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $registration;
 
     public function getId(): ?int
     {
@@ -42,14 +44,14 @@ class Registration
         return $this;
     }
 
-    public function getRegistrationId(): ?lesson
+    public function getRegistration(): ?Lesson
     {
-        return $this->registrationId;
+        return $this->registration;
     }
 
-    public function setRegistrationId(?lesson $registrationId): self
+    public function setRegistration(?Lesson $registration): self
     {
-        $this->registrationId = $registrationId;
+        $this->registration = $registration;
 
         return $this;
     }
