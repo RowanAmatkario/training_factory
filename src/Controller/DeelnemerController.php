@@ -4,7 +4,10 @@
 namespace App\Controller;
 
 
+use App\Entity\Lesson;
+use App\Entity\Registration;
 use App\Entity\Training;
+use Guzzle\Http\Message\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -52,6 +55,28 @@ class DeelnemerController extends AbstractController
 
     public function profielAction(){
         return $this->render('deelnemer/profiel.html.twig');
+    }
+
+
+    /**
+     * @Route("/inschrijving/{id}", name="inschrijving")
+     */
+    public function inschrijvingenAction(Request $request, $lesson){
+
+        $user = $this->getUser();
+        $inschrijving = new Registration();
+        $lesson = $this->getDoctrine()->getRepository(Lesson::class)->findAll();
+
+        $inschrijving->setRegistration($lesson);
+        $inschrijving->setUser($user);
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($inschrijving);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('agenda');
+
+
     }
 
 

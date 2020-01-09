@@ -32,7 +32,7 @@
                                     <a href="#" class="card-link">Delete</a>
                                 {% endif %}
                                 {% if is_granted('ROLE_USER') %}
-                                    <a href="#" class="card-link">Registreer uw les</a>
+                                    <button type="button" class="btn btn-light" style="margin-right: 5px;"> <a href="{{ path('inschrijving',{'id':training.id}) }}">Registreer</a></button>
                                 {% endif %}
                             </div>
                         </div>

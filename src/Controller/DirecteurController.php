@@ -62,7 +62,6 @@ class DirecteurController extends AbstractController
     }
 
 
-
     /**
      * @Route("/training/{id}", name="training_show", methods={"GET"})
      */
