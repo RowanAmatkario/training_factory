@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3102e986-8083-49e7-8d80-eeba549e77b7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/deelnemer/editProfiel.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/DeelnemerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DeelnemerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/bezoeker/agenda.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bezoeker/agenda.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/_delete_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/edit.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/new.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/show.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/instructeur.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/instructeur.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -220,7 +213,7 @@
       <workItem from="1578557341033" duration="16552000" />
       <workItem from="1578588601862" duration="8000" />
       <workItem from="1578588611979" duration="1819000" />
-      <workItem from="1578591764668" duration="4800000" />
+      <workItem from="1578591764668" duration="6138000" />
     </task>
     <servers />
   </component>

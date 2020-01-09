@@ -8,20 +8,29 @@
             <tbody>
             <tr>
                 <td>
+
+
+
+
                     {% for trainingen in training %}
                         {% for les in trainingen.getLessons %}
-                            <div class="card" style="width: 18rem; height: 5%; float:left; margin-right: 3%;">
+                            <div class="card" style="width: 100%; height: 5%; margin-bottom: 2%;">
                                 <div class="card-body">
-                                    <p class="card-text">{{ les.Date|date('j F, Y') }} {{ les.Time|date('h:i') }}</p>
-                                    <p class="card-text">{{trainingen.naam}}</p>
-                                    {% if is_granted('ROLE_ADMIN') %}
-                                        <a href="#" class="card-link">Delete</a>
-                                    {% endif %}
+                                    <h4>{{trainingen.naam}} <img src="{{ asset ('image/training.png')}}" class="card-img-top" alt="..." style="width: 10%; float:right;"></h4>
+                                    <h5>{{ les.Date|date('j F, Y') }} {{ les.Time|date('h:i') }}</h5>
+                                    <p>{{ les.location }}</p>
+                                    <div class="card-footer text-muted">
                                         <button type="button" class="btn btn-light" style="margin-right: 5px;"> <a href="{{ path('inschrijving',{'id':les.id}) }}">Inschrijven</a></button>
+                                    </div>
                                 </div>
                             </div>
                         {% endfor %}
                     {% endfor %}
+
+
+
+
+
                 </td>
             </tr>
             </tbody>

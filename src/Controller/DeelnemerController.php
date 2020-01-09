@@ -75,6 +75,7 @@ class DeelnemerController extends AbstractController
         $entityManager->persist($inschrijving);
         $entityManager->flush();
 
+
         return $this->redirectToRoute('homepage');
 
     }
