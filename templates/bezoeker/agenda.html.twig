@@ -28,7 +28,12 @@
                             <div class="card-body">
                                 <p class="card-text">{{ les.date|date('j F, Y') }} {{ les.time|date('h:i') }}</p>
                                 <p class="card-text">{{les.location}}</p>
-                                <a href="#" class="card-link">Registreer uw les</a>
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    <a href="#" class="card-link">Delete</a>
+                                {% endif %}
+                                {% if is_granted('ROLE_USER') %}
+                                    <a href="#" class="card-link">Registreer uw les</a>
+                                {% endif %}
                             </div>
                         </div>
                     {% endfor %}
