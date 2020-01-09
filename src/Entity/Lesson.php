@@ -112,6 +112,18 @@ class Lesson
         return $this;
     }
 
+    public function getPerson(): ?User
+    {
+        return $this->person;
+    }
+
+    public function setPerson(?User $person): self
+    {
+        $this->person = $person;
+
+        return $this;
+    }
+
 
     /**
      * @return Collection|Registration[]
@@ -144,17 +156,7 @@ class Lesson
         return $this;
     }
 
-    public function getPerson(): ?User
-    {
-        return $this->person;
-    }
 
-    public function setPerson(?User $person): self
-    {
-        $this->person = $person;
-
-        return $this;
-    }
 
     /**
      * @return Collection|Registration[]

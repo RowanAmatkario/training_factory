@@ -5,7 +5,9 @@ namespace App\Form;
 
 
 use App\Entity\Lesson;
+use App\Entity\Person;
 use App\Entity\Training;
+use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -27,6 +29,10 @@ class LessonType extends AbstractType
             ->add('training', EntityType::class, [
                 'class' => Training::class,
                 'choice_label' => 'naam',
+            ])
+            ->add('person', EntityType::class, [
+                'class' => User::class,
+                'choice_label' => 'firstname',
             ])
             ->add('Plan les', SubmitType::class);
     }
