@@ -20,11 +20,11 @@ class DeelnemerController extends AbstractController
 {
 
     /**
-     * @Route("/agenda/{id}", name="agenda")
+     * @Route("/agenda", name="agenda")
      */
-    public function agendaAction($id)
+    public function agendaAction()
     {
-        $training = $this->getDoctrine()->getRepository(Training::class)->find($id);
+        $training = $this->getDoctrine()->getRepository(Training::class)->findAll();
         return $this->render('bezoeker/agenda.html.twig', [
             'training' => $training,
         ]);
@@ -61,11 +61,12 @@ class DeelnemerController extends AbstractController
     /**
      * @Route("/inschrijving/{id}", name="inschrijving")
      */
-    public function inschrijvingenAction(Request $request, $lesson){
+    public function inschrijvingenAction($id){
 
         $user = $this->getUser();
         $inschrijving = new Registration();
-        $lesson = $this->getDoctrine()->getRepository(Lesson::class)->findAll();
+        $lesson = $this->getDoctrine()->getRepository(Lesson::class)->find($id);
+
 
         $inschrijving->setRegistration($lesson);
         $inschrijving->setUser($user);
@@ -75,7 +76,6 @@ class DeelnemerController extends AbstractController
         $entityManager->flush();
 
         return $this->redirectToRoute('agenda');
-
 
     }
 

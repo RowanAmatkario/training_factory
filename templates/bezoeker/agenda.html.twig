@@ -4,26 +4,28 @@
 
 
     <div class="container" style="margin-top: 2%;">
-                    <h3 style="text-align: center;">{{ training.naam }}</h3>
+        {% for trainingen in training %}
+                    <h3 style="text-align: center;">{{ trainingen.naam }}</h3>
                     <table class="table table-borderless">
                         <tbody>
                         <tr>
                             <td>Looptijd :</td>
-                            <td>{{ training.duration }}</td>
+                            <td>{{ trainingen.duration }}</td>
                         </tr>
                         <tr>
                             <td>Tarief :</td>
-                            <td>&euro; {{ training.costs }}</td>
+                            <td>&euro; {{ trainingen.costs }}</td>
                         </tr>
                         </tbody>
                     </table>
+        {% endfor %}
 
         <h3 style="text-align: center; margin-top: 2%;">Kies uw Datum en Tijd</h3>
         <table class="table table-borderless">
             <tbody>
             <tr>
                 <td>
-                    {% for les in training.getLessons %}
+                    {% for les in training[1].getLessons %}
                         <div class="card" style="width: 18rem; height: 5%; float:left; margin-right: 3%;">
                             <div class="card-body">
                                 <p class="card-text">{{ les.date|date('j F, Y') }} {{ les.time|date('h:i') }}</p>
@@ -32,7 +34,7 @@
                                     <a href="#" class="card-link">Delete</a>
                                 {% endif %}
                                 {% if is_granted('ROLE_USER') %}
-                                    <button type="button" class="btn btn-light" style="margin-right: 5px;"> <a href="{{ path('inschrijving',{'id':training.id}) }}">Registreer</a></button>
+                                    <button type="button" class="btn btn-light" style="margin-right: 5px;"> <a href="{{ path('inschrijving',{'id':les.id}) }}">Registreer</a></button>
                                 {% endif %}
                             </div>
                         </div>

@@ -12,11 +12,12 @@
                 <div class="card-footer text-muted">
                     {{training.costs}}
                 </div>
-                <button type="button" class="btn btn-light"><a href="{{ path('agenda',{'id':training.id}) }}">Plannen</a></button>
+                <button type="button" class="btn btn-light"><a href="{{ path('agenda') }}">Plannen</a></button>
             </div>
         {% endfor %}
 
 
     </div>
+
 {% endblock %}
 
