@@ -1,0 +1,49 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+
+
+
+    <div class="container" style="margin-top: 2%;">
+
+        <h3 style="text-align: center;">Trainingen</h3>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Training</th>
+                <th>Beschrijving</th>
+                <th>Wijzigen</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for training in trainings %}
+                <tr>
+                    <td>{{ training.naam }}</td>
+                    <td>{{ training.description }}</td>
+                    <td>
+                        <button type="button" class="btn btn-outline-primary"><a href="{{ path('training_show', {'id': training.id}) }}">Bekijken</a></button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-outline-primary"><a href="{{ path('training_edit', {'id': training.id}) }}">Wijzigen</a></button>
+                    </td>
+                    <td>
+                        {{ include('medewerker/delete.html.twig') }}
+
+                    </td>
+
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+
+
+
+    </div>
+{% endblock %}

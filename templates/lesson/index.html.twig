@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+
+    <div class="container" style="margin-top: 3%;">
+        <h1>Lessen Beheren</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Tijd</th>
+                <th>Datum</th>
+                <th>Locatie</th>
+                <th>Aanpassen</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for lesson in lessons %}
+            <tr>
+                <td>{{ lesson.time|date('H:i:s')}}</td>
+                <td>{{ lesson.date|date('Y-m-d')}}</td>
+                <td>{{ lesson.location }}</td>
+                <td>
+                    <a href="{{ path('lesson_show', {'id': lesson.id}) }}">Bekijk</a>
+                    <a href="{{ path('lesson_edit', {'id': lesson.id}) }}">Wijzigen</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('lesson_new') }}">Create new</a>
+    </div>
+{% endblock %}
