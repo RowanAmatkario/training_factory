@@ -21,6 +21,17 @@
                                     <p>{{ les.location }}</p>
                                     <div class="card-footer text-muted">
                                         <button type="button" class="btn btn-light" style="margin-right: 5px;"> <a href="{{ path('inschrijving',{'id':les.id}) }}">Inschrijven</a></button>
+
+
+                                        {% if is_granted('ROLE_INSTRUCTOR') %}
+                                            <form method="post" action="{{ path('lessonDelete', {'id': les.id}) }}" onsubmit="return confirm('Wilt u het echt verwijderen ?');">
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ les.id) }}">
+                                                <button class="btn btn-light">Verwijderen</button>
+                                            </form>
+                                            <button type="button" class="btn btn-light"><a href="{{ path('lessonShow', {'id': les.id}) }}">Bekijken</a></button><br>
+                                            <button type="button" class="btn btn-light"><a href="{{ path('lessonEdit', {'id': les.id}) }}">Wijzigen</a></button>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>

@@ -1,0 +1,17 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Les wijzigen{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+
+    <div class="container" style="margin-top: 2%;">
+        <h3 style="text-align: center;">Training wijzigen</h3>
+
+        {{form(form)}}
+
+        <a href="{{ path('agenda') }}">Terug</a>
+
+    </div>
+
+{% endblock %}

@@ -14,9 +14,10 @@ class ProfielType extends AbstractType
     {
         $builder
             ->add('email')
-            ->add('password')
             ->add('firstname')
             ->add('lastname')
+            ->add('dateofbirth', \Symfony\Component\Form\Extension\Core\Type\DateType::class)
+            ->add('gender')
             ->add('Opslaan', SubmitType::class);
         ;
     }

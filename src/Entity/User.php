@@ -55,6 +55,16 @@ class User implements UserInterface
      */
     private $registrations;
 
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $dateofbirth;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $gender;
+
     public function __construct()
     {
         $this->lessons = new ArrayCollection();
@@ -220,6 +230,30 @@ class User implements UserInterface
                 $registration->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDateofbirth(): ?\DateTimeInterface
+    {
+        return $this->dateofbirth;
+    }
+
+    public function setDateofbirth(?\DateTimeInterface $dateofbirth): self
+    {
+        $this->dateofbirth = $dateofbirth;
+
+        return $this;
+    }
+
+    public function getGender(): ?string
+    {
+        return $this->gender;
+    }
+
+    public function setGender(?string $gender): self
+    {
+        $this->gender = $gender;
 
         return $this;
     }
