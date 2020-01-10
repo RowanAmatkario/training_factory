@@ -122,6 +122,20 @@ class DirecteurController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/leden/{id}", name="ledenDelete", methods={"DELETE"})
+     */
+    public function ledenDelete(Request $request, User $user): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($user);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('leden');
+    }
+
 
 
 }

@@ -20,7 +20,7 @@
                                     <h5>{{ les.Date|date('j F, Y') }} {{ les.Time|date('h:i') }}</h5>
                                     <p>{{ les.location }}</p>
                                     <div class="card-footer text-muted">
-                                        <button type="button" class="btn btn-light" style="margin-right: 5px;"> <a href="{{ path('inschrijving',{'id':les.id}) }}">Inschrijven</a></button>
+                                        <button type="button" class="btn btn-light" style="margin-right: 5px;"> <a href="{{ path('inschrijving',{'id':les.id}) }}" >Inschrijven</a></button>
 
 
                                         {% if is_granted('ROLE_INSTRUCTOR') %}
