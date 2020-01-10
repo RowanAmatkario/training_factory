@@ -10,11 +10,12 @@ use App\Entity\Training;
 use App\Entity\User;
 use App\Form\LessonType;
 use App\Form\ProfielType;
-use Guzzle\Http\Message\Request;
+use App\Form\RegistrationType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Flex\Response;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @Route("/user")
@@ -57,31 +58,26 @@ class DeelnemerController extends AbstractController
 
 
     /**
-     * @Route("/profiel", name="profiel")
+     * @Route("/profielEdit", name="profieledit", methods={"GET","POST"})
      */
-    public function edit(Request $request, User $user): \Symfony\Component\HttpFoundation\Response
-    {
-        $form = $this->createForm(ProfielType::class, $user);
+   public function profileEditAction(Request $request):Response
+   {
+       $user = $this->getUser();
+       $form = $this->createForm(ProfielType::class, $user);
+       $form->handleRequest($request);
 
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
+       if ($form->isSubmitted()&& $form->isValid()) {
+           $user = $form->getData();
+           $entitymanager = $this->getDoctrine()->getManager();
+           $entitymanager->persist($user);
+           $entitymanager->flush();
+       }
+       return $this->render('deelnemer/profiel.html.twig', [
+           'user' => $user,
+           'form' => $form->createView()
+       ]);
+   }
 
-            $task = $form->getData();
-
-
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($task);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('task_success');
-        }
-
-
-        return $this->render('deelnemer/profiel.html.twig', [
-            'user' => $user,
-            'form' => $form->createView(),
-        ]);
-    }
 
 
 
