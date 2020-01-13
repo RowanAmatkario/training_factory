@@ -5,7 +5,9 @@ namespace App\Form;
 use App\Entity\User;
 use Doctrine\DBAL\Types\DateType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,12 +16,22 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email')
+            ->add('email', TextType::class, [
+                'label'=>'E-mail',
+            ])
             ->add('password')
-            ->add('firstname')
-            ->add('lastname')
-            ->add('dateofbirth', \Symfony\Component\Form\Extension\Core\Type\DateType::class)
-            ->add('gender')
+            ->add('firstname', TextType::class, [
+                'label'=>'Voornaam',
+            ])
+            ->add('lastname', TextType::class, [
+                'label'=>'Achternaam',
+            ])
+            ->add('dateofbirth', BirthdayType::class,[
+                'label'=>'Geboortedatum',
+            ])
+            ->add('gender', TextType::class, [
+                'label'=>'Geslacht',
+            ])
             ->add('Registeren', SubmitType::class);
         ;
     }
