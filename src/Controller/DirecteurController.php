@@ -7,7 +7,9 @@ namespace App\Controller;
 use App\Entity\Person;
 use App\Entity\Training;
 use App\Entity\User;
+use App\Form\InstructorType;
 use App\Form\TrainingType;
+use App\Form\UserType;
 use App\Repository\TrainingRepository;
 use Doctrine\DBAL\Types\TextType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -15,8 +17,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
-    /**
+/**
     * @Route("/admin")
     */
     
@@ -134,6 +137,33 @@ class DirecteurController extends AbstractController
         }
 
         return $this->redirectToRoute('leden');
+    }
+
+    /**
+     * @Route("/newInstructor", name="newInstructor")
+     */
+    public function newInstructor(Request $request, UserPasswordEncoderInterface $passwordEncoder)
+    {
+        $instructor = new User();
+        $form = $this->createForm(InstructorType::class, $instructor);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $task = $form->getData();
+            $task->setRoles(['ROLE_INSTRUCTOR']);
+            $task->setPassword($passwordEncoder->encodePassword($task, $task->getPassword()));
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($task);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('task_success');
+        }
+
+
+        return $this->render('medewerker/addInstructor.html.twig', [
+            'form' => $form->createView(),
+        ]);
     }
 
 

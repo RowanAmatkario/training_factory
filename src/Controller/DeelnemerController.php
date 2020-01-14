@@ -79,10 +79,6 @@ class DeelnemerController extends AbstractController
    }
 
 
-
-
-
-
     /**
      * @Route("/inschrijving/{id}", name="inschrijving")
      */
