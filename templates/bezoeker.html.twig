@@ -43,11 +43,11 @@
                 </li>
                 {% if is_granted('ROLE_USER') %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('homepage') }}">Overzicht inschrijvingen</a>
+                        <a class="nav-link" href="{{ path('overzichtInschrijvingen') }}">Overzicht inschrijvingen</a>
                     </li>
                 {% endif %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('homepage') }}">Gegevens Wijzigen</a>
+                    <a class="nav-link" href="{{ path('profieledit') }}">Gegevens Wijzigen</a>
             </ul>
             <div class="navbar-nav ml-auto">
                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}

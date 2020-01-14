@@ -14,6 +14,7 @@
             <tr>
                 <th>Naam</th>
                 <th>Achternaam</th>
+                <th>E-mail</th>
             </tr>
             </thead>
             <tbody>
@@ -21,6 +22,14 @@
                 <tr>
                     <td>{{ users.firstname }}</td>
                     <td>{{ users.lastname }}</td>
+                    <td>{{ users.email }}</td>
+                    <td><form method="post" action="{{ path('instructorDelete', {'id': users.id}) }}" onsubmit="return confirm('Wilt u het echt verwijderen ?');">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ users.id) }}">
+                            <button class="btn btn-outline-primary">Verwijderen</button>
+
+
+                        </form></td>
                 </tr>
             {% else %}
                 <tr>

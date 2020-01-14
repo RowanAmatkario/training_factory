@@ -1,0 +1,43 @@
+{% extends 'bezoeker.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+
+
+
+    <div class="container" style="margin-top: 2%;">
+
+        <h3 style="text-align: center;">Overzicht inschrijvingen</h3>
+
+        <table class="table table-borderless" style="margin-top: 4%;">
+            <thead>
+            <tr>
+                <th>Datum</th>
+                <th>Tijd</th>
+                <th>Locatie</th>
+                <th>Sport</th>
+                <th>Prijs</th>
+                <th>Uitschrijven</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for registration in registrations %}
+                <tr>
+                    <td>{{ registration.registration.Date|date('j F, Y') }}</td>
+                    <td>{{ registration.registration.Time|date('h:i') }}</td>
+                    <td>{{ registration.registration.location }}</td>
+                    <td>{{ registration.registration.training.naam }}</td>
+                    <td>{{ registration.registration.training.costs }}</td>
+                    <td><form method="post" action="{{ path('inschrijvingDelete', {'id': registration.id}) }}" onsubmit="return confirm('Wilt u het echt verwijderen ?');">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ registration.id) }}">
+                        <button class="btn btn-outline-primary">Uitschrijven</button>
+                    </form></td>
+                </tr>
+            {% endfor %}
+
+
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

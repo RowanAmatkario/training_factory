@@ -97,8 +97,36 @@ class DeelnemerController extends AbstractController
         $entityManager->flush();
 
 
-        return $this->redirectToRoute('homepage');
+        return $this->redirectToRoute('overzichtInschrijvingen');
 
+    }
+
+    /**
+     * @Route("/overzichtInschrijvingen/{id}", name="inschrijvingDelete", methods={"DELETE"})
+     */
+    public function inschrijvingDelete(Request $request, Registration $registration): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$registration->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($registration);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('overzichtInschrijvingen');
+    }
+
+    /**
+     * @Route("/overzichtInschrijvingen", name="overzichtInschrijvingen")
+     */
+
+    public function overzichtInschrijvingenAction(){
+
+        $user = $this->getUser();
+        $registrations = $user->getRegistrations();
+
+        return $this->render('deelnemer/overzichtInschrijvingen.html.twig', [
+            'registrations' => $registrations,
+        ]);
     }
 
 

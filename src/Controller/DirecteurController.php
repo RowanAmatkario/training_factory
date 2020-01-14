@@ -8,6 +8,7 @@ use App\Entity\Person;
 use App\Entity\Training;
 use App\Entity\User;
 use App\Form\InstructorType;
+use App\Form\ProfielType;
 use App\Form\TrainingType;
 use App\Form\UserType;
 use App\Repository\TrainingRepository;
@@ -127,6 +128,26 @@ class DirecteurController extends AbstractController
     }
 
     /**
+     * @Route("/leden/{id}/editLeden", name="editLeden", methods={"GET","POST"})
+     */
+    public function ledenEdit(Request $request, User $lid): Response
+    {
+        $form = $this->createForm(ProfielType::class, $lid);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('training_index');
+        }
+
+        return $this->render('medewerker/ledenEdit.html.twig', [
+            'lid' => $lid,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
      * @Route("/leden/{id}", name="ledenDelete", methods={"DELETE"})
      */
     public function ledenDelete(Request $request, User $user): Response
@@ -158,7 +179,7 @@ class DirecteurController extends AbstractController
             $entityManager->persist($task);
             $entityManager->flush();
 
-            return $this->redirectToRoute('task_success');
+            return $this->redirectToRoute('viewInstructor');
         }
 
 
@@ -176,6 +197,22 @@ class DirecteurController extends AbstractController
             'user' => $userRepository->findByRole("ROLE_INSTRUCTOR"),
         ]);
     }
+
+    /**
+     * @Route("/viewInstructor/{id}", name="instructorDelete", methods={"DELETE"})
+     */
+    public function instructorDelete(Request $request, User $user): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($user);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('viewInstructor');
+    }
+
+
 
 
 
