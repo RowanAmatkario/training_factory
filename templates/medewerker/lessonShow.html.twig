@@ -10,6 +10,12 @@
             <tbody>
 
 
+            {% for trainingen in lesson.getTraining %}
+                <tr>
+                    <th>Les:</th>
+                    <td>{{trainingen.naam}} </td>
+                </tr>
+            {% endfor %}
             <tr>
                 <th>Datum</th>
                 <td>{{ lesson.Date|date('j F, Y') }}</td>
@@ -26,6 +32,7 @@
 
         </table>
         <a href="{{ path('agenda') }}">Terug</a>
+
 
     </div>
 

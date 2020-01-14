@@ -1,0 +1,50 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+
+
+
+    <div class="container">
+
+        <h2 style="margin-top: 2%;">Instructeurs van Training Factory Den Haag</h2>
+
+        <table class="table table-borderless" style="margin-top: 4%;">
+            <thead>
+            <tr>
+                <th>Naam</th>
+                <th>Achternaam</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for users in user %}
+                <tr>
+                    <td>{{ users.firstname }}</td>
+                    <td>{{ users.lastname }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+
+        <button type="button" class="btn btn-outline-primary"><a href="{{ path('newInstructor') }}">Instructeur Toevoegen</a></button>
+
+
+    </div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+

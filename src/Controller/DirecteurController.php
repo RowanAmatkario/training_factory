@@ -11,6 +11,7 @@ use App\Form\InstructorType;
 use App\Form\TrainingType;
 use App\Form\UserType;
 use App\Repository\TrainingRepository;
+use App\Repository\UserRepository;
 use Doctrine\DBAL\Types\TextType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -119,7 +120,7 @@ class DirecteurController extends AbstractController
      */
 
     public function ledenAction(){
-        $lid = $this->getDoctrine()->getRepository(User::class)->findAll();
+        $lid = $this->getDoctrine()->getRepository(User::class)->findByRole("ROLE_USER");
         return $this->render('deelnemer/leden.html.twig', [
             'lid' => $lid,
         ]);
@@ -163,6 +164,16 @@ class DirecteurController extends AbstractController
 
         return $this->render('medewerker/addInstructor.html.twig', [
             'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/viewInstructor", name="viewInstructor", methods={"GET"})
+     */
+    public function allIntructor(UserRepository $userRepository): Response
+    {
+        return $this->render('medewerker/viewInstructor.html.twig', [
+            'user' => $userRepository->findByRole("ROLE_INSTRUCTOR"),
         ]);
     }
 
