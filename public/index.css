@@ -10,3 +10,7 @@
 .card{
     height: 650px;
 }
+
+body{
+    background-image: url("image/bg.jpg");
+}

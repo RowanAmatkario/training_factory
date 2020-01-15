@@ -28,7 +28,7 @@
                     <td>{{ registration.registration.location }}</td>
                     <td>{{ registration.registration.training.naam }}</td>
                     <td>{{ registration.registration.training.costs }}</td>
-                    <td><form method="post" action="{{ path('inschrijvingDelete', {'id': registration.id}) }}" onsubmit="return confirm('Wilt u het echt verwijderen ?');">
+                    <td><form method="post" action="{{ path('inschrijvingDelete', {'id': registration.id}) }}" onsubmit="return confirm('Wilt u u echt uitschrijven ?');">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ registration.id) }}">
                         <button class="btn btn-outline-primary">Uitschrijven</button>

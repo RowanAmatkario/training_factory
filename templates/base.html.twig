@@ -19,12 +19,8 @@
 </head>
 <body>
 
-<img src="{{ asset('image/header.webp') }}" alt="logo" style="width:150px; float: left;">
-<div style="background-image:url('{{ asset('image/bg.jpg') }}')">,
-
-    <h1>Training Centrum <br>Den Haag</h1>
 {% block nav %}
-    <nav class="navbar navbar-expand-md navbar-light bg-light" style="margin-top: 2%;">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
         <a href="#" class="navbar-brand">
             <img src="{{ asset('image/logo.jpg') }}" alt="logo" style="width:50px;">
         </a>
@@ -92,18 +88,12 @@
         </div>
     </nav>
     {% endblock %}
+
 {% block body %}
 
 {% endblock %}
-
-{% block footer %}
-
-{% endblock %}
-
-
-
+    </body>
 </div>
-</body>
 </html>
 
 
