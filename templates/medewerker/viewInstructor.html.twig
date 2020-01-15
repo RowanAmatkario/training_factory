@@ -26,6 +26,7 @@
                     <td><form method="post" action="{{ path('instructorDelete', {'id': users.id}) }}" onsubmit="return confirm('Wilt u het echt verwijderen ?');">
                             <input type="hidden" name="_method" value="DELETE">
                             <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ users.id) }}">
+                            <button type="button" class="btn btn-outline-primary"><a href="{{ path('editInstructor', {'id': users.id}) }}">Details</a></button>
                             <button class="btn btn-outline-primary">Verwijderen</button>
 
 

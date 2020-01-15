@@ -42,7 +42,7 @@ class InstructeurController extends AbstractController
             $entityManager->persist($task);
             $entityManager->flush();
 
-            return $this->redirectToRoute('task_success');
+            return $this->redirectToRoute('agenda');
         }
 
 

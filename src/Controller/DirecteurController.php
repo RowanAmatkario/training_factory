@@ -212,6 +212,26 @@ class DirecteurController extends AbstractController
         return $this->redirectToRoute('viewInstructor');
     }
 
+    /**
+     * @Route("/viewInstructor/{id}/editInstructor", name="editInstructor", methods={"GET","POST"})
+     */
+    public function instructorEdit(Request $request, User $user): Response
+    {
+        $form = $this->createForm(ProfielType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('viewInstructor');
+        }
+
+        return $this->render('medewerker/instructorEdit.html.twig', [
+            'user' => $user,
+            'form' => $form->createView(),
+        ]);
+    }
+
 
 
 

@@ -1,0 +1,12 @@
+{% extends 'admin.html.twig' %}
+
+
+{% block body %}
+    {{ parent() }}
+
+    <div class="container" style="margin-top: 2%;">
+        <h3 style="text-align: center;">Details van {{ user.firstname}} {{ user.lastname }}</h3>
+        {{form(form)}}
+    </div>
+
+{% endblock %}
